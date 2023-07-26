@@ -1,0 +1,2 @@
+# I have enforced usage of templates via .github/ISSUE_TEMPLATE/config.yml:
+blank_issues_enabled: false
