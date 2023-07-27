@@ -1,0 +1,55 @@
+name: "💡 Feature Request"
+description: Create a new issue for a new feature request
+title: "💡 [REQUEST] - <title>"
+labels: [
+  "question"
+]
+body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing issue for this?
+    description: Please search to see if an issue already exists for the feature request.
+    options:
+    - label: I have searched the existing issues
+      required: true
+  
+      
+- type: markdown
+  attributes:
+    value: "#### Please ensure that all required (*) fields are filled out in order to submit the issue."
+  
+- type: textarea
+  id: reference_issues
+  attributes:
+    label: "Reference Issues"
+    description: Common issues
+    placeholder: "#Issues IDs"
+  validations:
+    required: false
+    
+- type: textarea
+  id: description 
+  attributes:
+    label: "Description "
+    description: Provide a brief description of the feature
+    placeholder: Describe in a few lines your feature request
+  validations:
+    required: true
+    
+- type: textarea
+  id: basic_example
+  attributes:
+    label: "Basic Example"
+    description: Indicate here some basic examples of your feature.
+    placeholder: A few specific words about your feature request.
+  validations:
+    required: true
+
+- type: checkboxes
+  attributes:
+    label: Have you given as much information as possible about the feature?
+    description: If not, then please provide more information about the feature to be implemented.
+    options:
+    - label: Yes, I have provided as much as  information for the feature
+      required: true
+  
