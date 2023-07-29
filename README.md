@@ -63,15 +63,16 @@ A: If you believe there has been a violation of the Code of Conduct, please rais
 
 We operate on a point system to fairly and transparently evaluate your contributions. The point system works as follows:
 
-1. **Task Creation:** Whenever you encounter a problem, have a new idea, or believe there's an area for improvement, create a new Issue on the GitHub repository. Describe the problem or feature and, if possible, propose a solution or implementation in the issue description. Creating and properly documenting an issue is valued and earns you 20% of the total points assigned to that issue.
+1. **Task Creation:** Whenever you encounter a problem, have a new idea, or believe there's an area for improvement, create a new Issue on the GitHub repository. Describe the problem or feature and, if possible, propose a solution or implementation in the issue description. Creating and properly documenting an issue is valued and earns you 20% of the total points assigned to that issue. If you propose an issue or feature with a clear and correct potential solution overview, that issue will be assigned to you. Once you are assigned to the issue only your PR will be accepted for that issue. If you fail to submit a PR within feasible timeframe the issue will open for everyone.
 
-2. **Task Classification:** The project lead will review each Issue and assign Labels to it that correspond to point values, e.g., `5 points`, `10 points`, `15 points`, etc. The more complex and valuable the task, the higher the points it will be assigned. If the issue is not up to the mark, it will be rejected. You get 20% of the points for an issue once it's approved, labeled and closed after merging the soluton PR.
+2. **Task Classification:** The project lead will review each Issue and assign Labels to it that correspond to point values. These can range from `1 Point` to `5 Points`, and we have `2x`, `3x`, and `4x` Badges as point multipliers for issues requiring innovative or critical thinking. The more complex and valuable the task, the higher the points it will be assigned. If the issue is not up to the mark, it will be rejected. You get 20% of the points for an issue once it's approved, labeled, and closed after merging the solution PR.
 
 3. **Task Completion:** To complete a task, submit a Pull Request (PR) that addresses an Issue. Remember to link the PR to the corresponding Issue. Once your PR is reviewed and merged, you'll receive the remaining 80% of the points associated with the task's label. Anyone can submit a PR to solve an issue, but only the first PR that's merged will be considered for points.
 
 4. **Point Tracking:** The project lead updates the Points.md file in the repository at the end of each day, showing the updated points tally. This gives everyone a clear view of their contribution progress.
 
 The point system is designed to be flexible, allowing for adjustments based on the actual effort required for tasks. Please ensure you understand how the system works, as it's the basis for how we evaluate your contributions.
+
 
 ## Guidelines for Creating an Issue:
 
@@ -100,3 +101,31 @@ When submitting an issue, it's important to ensure your issue report is as detai
 7. **Relevance:** Please ensure your issue is relevant to the project. We want to keep the issue tracker as clean and organized as possible, so please refrain from posting issues that are unrelated to the project. Or issues that don't contribute to the project in any significant way. We don't accept issues that are too trivial or too complex. For example - "Add a comma here" or "Add AI to the project". These issues will be closed without any points. As a rule of thumb, try to find bugs that break main functionality or suggest features that will add significant value to the project. An issue, bug or feature might be too trivial if it takes only a few minutes to fix or implement(apart from critical bugs that are caused by small mistakes). An issue, bug or feature might be too complex if it takes more than a few hours to fix or implement. Make sure the issue can be solved in a modular way and the issue focuses on one problem only. If you have any doubts regarding the relevance of your issue, please feel free to ask during the feedback sessions.
 
 By following these guidelines, you help to ensure your issue will be understood and addressed more effectively.
+
+Before you start, please take a moment to review the [qualities.md](https://github.com/dear-digital/linter/blob/main/qualities.md) file. This document contains an overview of the qualities and skills we're looking for in a contributor. Understanding these qualities will not only help you become a better contributor but also help you understand how we evaluate and assign points for tasks.
+
+## 💡 Community Discussions
+
+GitHub Discussions is our chosen platform for building a community around our project. Here, you'll not only find vibrant conversations around the project's development but also get to observe first-hand how the project evolves and progresses.
+
+### How are Discussions different from Issues?
+
+While Issues are meant to be more formal and are usually tied to specific tasks or problems, Discussions serve as a less structured platform for questions, ideas, and collaborative problem-solving. They offer a more communal approach to contributing to the project, allowing for brainstorming sessions, polls, Q&As, and even casual conversations around the project's domain.
+
+### The Importance of Participating in Discussions
+
+Active participation in discussions is crucial to maintaining a clear understanding of the project's trajectory. The conversations, especially the polls, could influence major decisions regarding the project's direction. Hence, contributing to discussions is compulsory for all project members. 
+
+To recognize the importance of active discussion participation, we are planning to implement a points system for discussions. Details on the criteria and allocation will be released soon, so stay tuned!
+
+### Keeping Yourself Updated
+
+Reviewing discussions regularly ensures you are kept abreast of the latest updates, decisions, and the overall direction of the project. It's not just about contributing to the conversations; it's about understanding the evolving context of the project.
+
+### Current Project Phase
+
+Please note that we are in the 'Scoping' phase of the project until July 31st. During this time, we are actively participating in discussions to decide the project's scope and to choose an existing code repository. While there may not be many opportunities to find bugs in code yet, we encourage you to review the project's documentation (like the README and other files) for any inconsistencies or errors. We appreciate your patience and look forward to more active code contributions starting August 1st.
+
+## Stay Updated:
+
+This project is in a state of active development and is constantly evolving. Rules and guidelines can change from time to time. To ensure you're always up to speed, we strongly recommend regularly reviewing the README and its change history. Checking the commit history of the README file can give you an idea of when the last changes were made. Staying updated will ensure you're always following the latest guidelines and requirements of the project. Remember, knowledge is power!
