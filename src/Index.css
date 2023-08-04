@@ -1,0 +1,9 @@
+:root {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--p-color-bg);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
