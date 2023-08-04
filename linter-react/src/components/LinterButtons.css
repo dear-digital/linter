@@ -1,0 +1,27 @@
+.btn-group-wrapper {
+  display: flex;
+  align-content: center;
+  margin-left: 2vw;
+}
+
+.Polaris-Button {
+  background-color: var(--p-color-bg-info-strong);
+  padding: 10px 15px;
+  text-decoration: none;
+  border: 1px solid #e1e1e1;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--p-color-text-inverse);
+  margin: 0px 10px 0 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.lint-btn-wrapper :hover {
+  background-color: var(--p-color-bg-info-subdued);
+  color: var(--p-color-text);
+}
+
+.lint-btn-wrapper :active {
+  background-color: transparent;
+}
