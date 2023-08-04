@@ -19,5 +19,9 @@ npm install @shopify/polaris --save
 ```
 npm install i18n --save
 ```
+```
+npm run dev
+```
 
+More about [Vite](https://vitejs.dev/)
    
