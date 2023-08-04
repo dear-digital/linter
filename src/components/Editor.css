@@ -1,0 +1,51 @@
+.editor-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Polaris-TextField__Input {
+  min-height: 50vh;
+  max-height: 60vh;
+  min-width: 45vw;
+  max-width: 45vw;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 5px;
+  border: 2px groove;
+}
+
+#input-field {
+  white-space: nowrap;
+  outline: none;
+}
+
+#output-field {
+  background-color: white;
+  white-space: nowrap;
+}
+
+.Polaris-Label {
+  font-weight: var(--p-font-weight-medium);
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  .editor-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .Polaris-Label__Text {
+    margin-left: 2vw;
+  }
+  .Polaris-TextField__Input {
+    margin-left: 2vw;
+    min-height: 32vh;
+    max-height: 60vh;
+    min-width: 65vw;
+    max-width: 90vw;
+  }
+  .btn-group-wrapper {
+    margin-bottom: 30px;
+  }
+}

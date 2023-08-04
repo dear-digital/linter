@@ -1,0 +1,27 @@
+.title-wrapper {
+  background-color: var(--p-color-bg-info-strong);
+}
+
+.page {
+  margin-left: 5px;
+}
+
+.page-title {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  color: var(--p-text-primary);
+}
+
+.page-wrapper {
+  padding: 5px;
+  background-color: var(--p-color-bg);
+}
+
+.subtitle-wrapper {
+  margin-left: 2vw;
+}
+
+.btn-title {
+  margin-top: 30px;
+}
