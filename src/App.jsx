@@ -1,9 +1,51 @@
+import { useState, useCallback } from "react";
 import { Page, Layout, Card, Text, LegacyStack } from "@shopify/polaris";
 import Editor from "./components/Editor";
 import LinterButtons from "./components/LinterButtons";
 import "./App.css";
 
 function App() {
+  const [error, setError] = useState("");
+  const [jsonCode, setJsonCode] = useState("");
+  const [updatedJsonCode, setUpdatedJsonCode] = useState("");
+
+  const handleJsonChange = useCallback((value) => {
+    setJsonCode(value);
+  }, []);
+
+  const handleFormatJSON = useCallback(async () => {
+    console.log("Button Clicked");
+    try {
+      const response = await fetch("http://localhost:5000/format-json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ jsonString: jsonCode }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.formattedJson) {
+          setError("");
+          setUpdatedJsonCode(data.formattedJson);
+        } else if (data.error) {
+          setError(`Error: ${data.error}`);
+          setUpdatedJsonCode(""); // Clear the output in case of an error
+        }
+      } else {
+        const errorMessage = await response.text();
+        setError(`Error: ${errorMessage}`);
+        setUpdatedJsonCode(""); // Clear the output in case of an error
+      }
+    } catch (error) {
+      setError("Error occurred while processing the request");
+      setUpdatedJsonCode(""); // Clear the output in case of an error
+    }
+
+
+  }, [jsonCode]);
+
   return (
     <div className="App">
       <Page>
@@ -26,7 +68,7 @@ function App() {
                       Editor
                     </Text>
                   </div>
-                  <Editor />
+                  <Editor jsonCode={jsonCode} onJsonChange={handleJsonChange} updatedJson={updatedJsonCode} error={error} />
                 </Card>
               </Layout.Section>
               <Layout.Section oneThird>
@@ -38,7 +80,7 @@ function App() {
                       </Text>
                     </div>
                   </div>
-                  <LinterButtons />
+                  <LinterButtons onFormatJSON={handleFormatJSON} />
                 </Card>
               </Layout.Section>
             </div>
