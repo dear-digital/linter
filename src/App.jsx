@@ -16,34 +16,27 @@ function App() {
   const handleFormatJSON = useCallback(async () => {
     console.log("Button Clicked");
     try {
-      const response = await fetch("http://localhost:5000/format-json", {
-        method: "POST",
+      const response = await fetch('http://localhost:5000/format-json', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ jsonString: jsonCode }),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        if (data.formattedJson) {
-          setError("");
-          setUpdatedJsonCode(data.formattedJson);
-        } else if (data.error) {
-          setError(`Error: ${data.error}`);
-          setUpdatedJsonCode(""); // Clear the output in case of an error
-        }
+      const data = await response.json();
+
+      if (data.formattedJson) {
+        setError("");
+        setUpdatedJsonCode(data.formattedJson);
+      } else if (data.error && data.errorMessage) {
+        setError(data.errorMessage); // Set the error message from the response
       } else {
-        const errorMessage = await response.text();
-        setError(`Error: ${errorMessage}`);
-        setUpdatedJsonCode(""); // Clear the output in case of an error
+        setError("Unknown error occurred"); // Handle any unexpected error case
       }
     } catch (error) {
-      setError("Error occurred while processing the request");
-      setUpdatedJsonCode(""); // Clear the output in case of an error
+      setUpdatedJsonCode('Error occurred', error.message);
     }
-
-
   }, [jsonCode]);
 
   return (

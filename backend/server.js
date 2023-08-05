@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 });
 
 
-/* app.post("/format-json", (req, res) => {
+app.post("/format-json", (req, res) => {
   const jsonString = req.body.jsonString;
 
     try {
@@ -43,11 +43,11 @@ app.get("/", (req, res) => {
     }
     catch (error) {
         console.log(error.message);
-        res.status(400).json({ error: "Invalid JSON",  });
+        res.status(400).json({ error: "Invalid JSON", errorMessage: error.message  });
   }
-}); */
+});
 
-app.post("/format-json", (req, res) => {
+/* app.post("/format-json", (req, res) => {
   const jsonString = req.body.jsonString;
 
   try {
@@ -63,7 +63,7 @@ app.post("/format-json", (req, res) => {
     console.log(error.message);
     res.status(400).json(error.message); // Send the error message directly
   }
-});
+}); */
 
 
 
