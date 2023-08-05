@@ -30,9 +30,9 @@ function App() {
         setError("");
         setUpdatedJsonCode(data.formattedJson);
       } else if (data.error && data.errorMessage) {
-        setError(data.errorMessage); // Set the error message from the response
+        setError(data.errorMessage); 
       } else {
-        setError("Unknown error occurred"); // Handle any unexpected error case
+        setError("Unknown error occurred");
       }
     } catch (error) {
       setUpdatedJsonCode('Error occurred', error.message);

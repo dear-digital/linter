@@ -47,25 +47,6 @@ app.post("/format-json", (req, res) => {
   }
 });
 
-/* app.post("/format-json", (req, res) => {
-  const jsonString = req.body.jsonString;
-
-  try {
-    // Parsing and validating JSON
-    const jsonObject = JSON.parse(jsonString);
-
-    // Reformatting JSON (pretty-print)
-    const formattedJson = JSON.stringify(jsonObject, null, 2);
-
-    // Send the formatted JSON object directly, not as a string
-    res.json({ formattedJson });
-  } catch (error) {
-    console.log(error.message);
-    res.status(400).json(error.message); // Send the error message directly
-  }
-}); */
-
-
 
 // Set up your API endpoints or routes here
 
