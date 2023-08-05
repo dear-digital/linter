@@ -1,33 +1,16 @@
-// app.js
-//const express = require("express");
 import express from 'express'
-import cors from 'cors'
+
 const app = express();
 
-//const jsonString = '{"name": "John", "age": 30, "city": "New York"}';
-
-
-/* try {
-  const jsonObject = JSON.parse(jsonString);
-  console.log(jsonObject);
-    res.send(jsonObject)
-  
-  const formattedJsonString = JSON.stringify(jsonObject, null, 2);
-  console.log(formattedJsonString);
-} catch (error) {
-  console.error("Invalid JSON:", error.message);
-} */
-
-
 app.use(express.json());
-app.use(cors()); // Allow all CORS requests, you can configure more specific options if needed.
+
 
 app.get("/", (req, res) => {
   res.json("Server started");
 });
 
 
-app.post("/format-json", (req, res) => {
+app.post("/api/format-json", (req, res) => {
   const jsonString = req.body.jsonString;
 
     try {
@@ -42,7 +25,6 @@ app.post("/format-json", (req, res) => {
     
     }
     catch (error) {
-        console.log(error.message);
         res.status(400).json({ error: "Invalid JSON", errorMessage: error.message  });
   }
 });

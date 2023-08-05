@@ -14,9 +14,8 @@ function App() {
   }, []);
 
   const handleFormatJSON = useCallback(async () => {
-    console.log("Button Clicked");
     try {
-      const response = await fetch('http://localhost:5000/format-json', {
+      const response = await fetch('/api/format-json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
