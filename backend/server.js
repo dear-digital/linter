@@ -30,8 +30,6 @@ app.post("/api/format-json", (req, res) => {
 });
 
 
-// Set up your API endpoints or routes here
-
 const port = 5000;
 
 app.listen(port, () => {
