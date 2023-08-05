@@ -1,0 +1,47 @@
+name: " Pull Request"
+description: |
+  In an effort to maintain high-quality code and follow the best coding practices in our project,
+  I suggest adding two new checkboxes to our pull request template:
+
+  AI Code Review:
+  This will encourage contributors to make use of AI tools for initial code suggestions and checks,
+  which can help identify potential issues and improvements before the code reaches human reviewers.
+
+  Coding Standards:
+  This will remind contributors to adhere to the current best practices and coding standards for
+  our project's tech stack, which can improve readability, maintainability, and overall code quality.
+
+body:
+- type: markdown
+  attributes:
+    value: |
+      #### Please ensure that all required (*) fields are filled out in order to submit the pull request.
+
+- type: checkboxes
+  attributes:
+    label: "AI Code Review"
+    description: |
+      This will encourage contributors to make use of AI tools for initial code suggestions and checks,
+      which can help identify potential issues and improvements before the code reaches human reviewers.
+    options:
+    - label: "I have checked my code with free AI tools like ChatGPT for suggestions."
+      required: true
+
+- type: checkboxes
+  attributes:
+    label: "Coding Standards"
+    description: |
+      This will remind contributors to adhere to the current best practices and coding standards for
+      our project's tech stack, which can improve readability, maintainability, and overall code quality.
+    options:
+    - label: "I have ensured that my code follows the latest coding standards for our chosen language/platform."
+      required: true
+
+- type: checkboxes
+  attributes:
+    label: Have you given as much information as possible about the feature?
+    description: |
+      If not, then please provide more information about the feature to be implemented.
+    options:
+    - label: Yes, I have provided as much information as possible for the feature
+      required: true
