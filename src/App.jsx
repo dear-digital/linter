@@ -3,6 +3,7 @@ import { Page, Layout, Card, Text, LegacyStack } from "@shopify/polaris";
 import Editor from "./components/Editor";
 import LinterButtons from "./components/LinterButtons";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const [error, setError] = useState("");
@@ -15,26 +16,27 @@ function App() {
 
   const handleFormatJSON = useCallback(async () => {
     try {
-      const response = await fetch('/api/format-json', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ jsonString: jsonCode }),
+      const response = await axios.post("/api/format-json", {
+        jsonString: jsonCode,
       });
 
-      const data = await response.json();
+      const data = response.data;
 
       if (data.formattedJson) {
         setError("");
         setUpdatedJsonCode(data.formattedJson);
       } else if (data.error && data.errorMessage) {
-        setError(data.errorMessage); 
+        setError(data.errorMessage);
       } else {
         setError("Unknown error occurred");
       }
-    } catch (error) {
-      setUpdatedJsonCode('Error occurred', error.message);
+    }
+    catch (error) {
+      if (error.response && error.response.data && error.response.data.errorMessage) {
+        setError(error.response.data.errorMessage);
+      } else {
+        setError("Error occurred while processing the request");
+      }
     }
   }, [jsonCode]);
 
