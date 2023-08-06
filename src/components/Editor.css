@@ -23,6 +23,7 @@
 #output-field {
   background-color: white;
   white-space: nowrap;
+  outline: none;
 }
 
 .Polaris-Label {

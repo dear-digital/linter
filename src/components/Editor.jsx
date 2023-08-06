@@ -1,14 +1,15 @@
-import { useState, useCallback, useEffect } from "react";
+//import { useState, useCallback, useEffect } from "react";
 import { FormLayout, TextField } from "@shopify/polaris";
 import "./Editor.css";
 
-function Editor() {
-  const [jsonCode, setJsonCode] = useState("");
-  const [updatedJsonCode, setUpdatedJsonCode] = useState("");
+function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
+  //const [jsonCode, setJsonCode] = useState("");
+  //const [updatedJsonCode, setUpdatedJsonCode] = useState("");
+  // Convert the updatedJson string to an object
+  /* const parsedUpdatedJson = JSON.parse(updatedJson);
 
-  const handleJsonChange = (value) => {
-    setJsonCode(value);
-  };
+  // Convert the parsed object to a formatted JSON string
+  const formattedJsonString = JSON.stringify(parsedUpdatedJson, null, 2); */
 
   return (
     <FormLayout>
@@ -21,7 +22,7 @@ function Editor() {
             label="Paste JSON Code"
             multiline={4}
             value={jsonCode}
-            onChange={handleJsonChange}
+            onChange={onJsonChange}
             spellCheck="false"
             placeholder="Paste your JSON Code here"
           />
@@ -31,13 +32,16 @@ function Editor() {
             id="output-field"
             label="Result"
             multiline={4}
-            value={updatedJsonCode}
+            value={error ? `${error}` : updatedJson}
             spellCheck="false"
-            disabled
             autoComplete="off"
           />
         </div>
+
+        
       </div>
+
+    
     </FormLayout>
   );
 }

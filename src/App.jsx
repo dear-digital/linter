@@ -1,9 +1,45 @@
+import { useState, useCallback } from "react";
 import { Page, Layout, Card, Text, LegacyStack } from "@shopify/polaris";
 import Editor from "./components/Editor";
 import LinterButtons from "./components/LinterButtons";
 import "./App.css";
+import axios from "axios";
 
 function App() {
+  const [error, setError] = useState("");
+  const [jsonCode, setJsonCode] = useState("");
+  const [updatedJsonCode, setUpdatedJsonCode] = useState("");
+
+  const handleJsonChange = useCallback((value) => {
+    setJsonCode(value);
+  }, []);
+
+  const handleFormatJSON = useCallback(async () => {
+    try {
+      const response = await axios.post("/api/format-json", {
+        jsonString: jsonCode,
+      });
+
+      const data = response.data;
+
+      if (data.formattedJson) {
+        setError("");
+        setUpdatedJsonCode(data.formattedJson);
+      } else if (data.error && data.errorMessage) {
+        setError(data.errorMessage);
+      } else {
+        setError("Unknown error occurred");
+      }
+    }
+    catch (error) {
+      if (error.response && error.response.data && error.response.data.errorMessage) {
+        setError(error.response.data.errorMessage);
+      } else {
+        setError("Error occurred while processing the request");
+      }
+    }
+  }, [jsonCode]);
+
   return (
     <div className="App">
       <Page>
@@ -26,7 +62,7 @@ function App() {
                       Editor
                     </Text>
                   </div>
-                  <Editor />
+                  <Editor jsonCode={jsonCode} onJsonChange={handleJsonChange} updatedJson={updatedJsonCode} error={error} />
                 </Card>
               </Layout.Section>
               <Layout.Section oneThird>
@@ -38,7 +74,7 @@ function App() {
                       </Text>
                     </div>
                   </div>
-                  <LinterButtons />
+                  <LinterButtons onFormatJSON={handleFormatJSON} />
                 </Card>
               </Layout.Section>
             </div>
