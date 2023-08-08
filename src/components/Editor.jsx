@@ -1,47 +1,55 @@
-//import { useState, useCallback, useEffect } from "react";
-import { FormLayout, TextField } from "@shopify/polaris";
+import React, { useState } from "react";
+import { FormLayout } from "@shopify/polaris";
 import "./Editor.css";
 
 function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
-  //const [jsonCode, setJsonCode] = useState("");
-  //const [updatedJsonCode, setUpdatedJsonCode] = useState("");
-  // Convert the updatedJson string to an object
-  /* const parsedUpdatedJson = JSON.parse(updatedJson);
-
-  // Convert the parsed object to a formatted JSON string
-  const formattedJsonString = JSON.stringify(parsedUpdatedJson, null, 2); */
+  const [text, setText] = useState("");
+  const handleTextChange = (event) => {
+    const inputText = event.target.value;
+  
+    if (inputText.endsWith("{")) {
+      const newText = inputText + "\n  \n}";
+      setText(newText);
+      onJsonChange(newText);
+    } else if (inputText.endsWith(`"`)) {
+      const newText = inputText + `"`;
+      setText(newText);
+      onJsonChange(newText);
+    } else {
+      setText(inputText);
+      onJsonChange(inputText);
+    }
+  };
+  
+  
 
   return (
     <FormLayout>
       <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
       <div className="editor-wrapper">
         <div className="input-field-wrapper">
-          <TextField
-            wrap="true"
+          <p> Paste JSON Code</p>
+          <textarea
+            className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea"
             id="input-field"
+            value={text}
             label="Paste JSON Code"
-            multiline={4}
-            value={jsonCode}
-            onChange={onJsonChange}
+            onChange={handleTextChange}
             spellCheck="false"
             placeholder="Paste your JSON Code here"
           />
         </div>
         <div className="output-field-wrapper">
-          <TextField
+        <p> Output JSON Code</p>
+          <textarea
+            className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea output-field"
             id="output-field"
-            label="Result"
-            multiline={4}
             value={error ? `${error}` : updatedJson}
             spellCheck="false"
-            autoComplete="off"
+            readOnly
           />
         </div>
-
-        
       </div>
-
-    
     </FormLayout>
   );
 }
