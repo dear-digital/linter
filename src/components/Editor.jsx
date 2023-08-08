@@ -4,13 +4,18 @@ import "./Editor.css";
 
 function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
   const [text, setText] = useState("");
+
   const handleTextChange = (event) => {
     const inputText = event.target.value;
-  
+
     if (inputText.endsWith("{")) {
-      const newText = inputText + "\n  \n}";
+      const newText = inputText + "\n  \" \" : \" \",\n}";
       setText(newText);
       onJsonChange(newText);
+
+      // Set the cursor position between the braces
+      const cursorPosition = newText.length - 5;
+      event.target.setSelectionRange(cursorPosition, cursorPosition);
     } else if (inputText.endsWith(`"`)) {
       const newText = inputText + `"`;
       setText(newText);
@@ -20,8 +25,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
       onJsonChange(inputText);
     }
   };
-  
-  
+
 
   return (
     <FormLayout>
@@ -37,15 +41,18 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
             onChange={handleTextChange}
             spellCheck="false"
             placeholder="Paste your JSON Code here"
+            style={{ fontSize: "20px" }}
           />
+
         </div>
         <div className="output-field-wrapper">
-        <p> Output JSON Code</p>
+          <p> Output JSON Code</p>
           <textarea
             className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea output-field"
             id="output-field"
             value={error ? `${error}` : updatedJson}
             spellCheck="false"
+            style={{ fontSize: "20px" }}
             readOnly
           />
         </div>
