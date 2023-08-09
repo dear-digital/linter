@@ -23,7 +23,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
             mode="json" // Specify the syntax mode
             theme="github" // Specify the theme
             name="input-field"
-            value={text}
+            value={jsonCode}
             onChange={handleTextChange}
             placeholder="Paste your JSON Code here"
             width="500px"
