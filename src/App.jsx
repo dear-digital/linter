@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Page, Layout, Card, Text, LegacyStack } from "@shopify/polaris";
 import Editor from "./components/Editor";
 import LinterButtons from "./components/LinterButtons";
@@ -12,6 +12,24 @@ function App() {
 
   const handleJsonChange = useCallback((value) => {
     setJsonCode(value);
+    // Update the cookie whenever JSON code changes
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 7);
+    document.cookie = `jsonCode=${encodeURIComponent(
+      value
+    )}; expires=${expirationDate.toUTCString()}; path=/`;
+  }, []);
+
+  useEffect(() => {
+    // Load stored JSON code from the cookie on initial render
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+      const [name, value] = cookie.split("=");
+      if (name === "jsonCode") {
+        setJsonCode(decodeURIComponent(value));
+        break;
+      }
+    }
   }, []);
 
   const handleFormatJSON = useCallback(async () => {
@@ -30,9 +48,12 @@ function App() {
       } else {
         setError("Unknown error occurred");
       }
-    }
-    catch (error) {
-      if (error.response && error.response.data && error.response.data.errorMessage) {
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.errorMessage
+      ) {
         setError(error.response.data.errorMessage);
       } else {
         setError("Error occurred while processing the request");
@@ -62,7 +83,12 @@ function App() {
                       Editor
                     </Text>
                   </div>
-                  <Editor jsonCode={jsonCode} onJsonChange={handleJsonChange} updatedJson={updatedJsonCode} error={error} />
+                  <Editor
+                    jsonCode={jsonCode}
+                    onJsonChange={handleJsonChange}
+                    updatedJson={updatedJsonCode}
+                    error={error}
+                  />
                 </Card>
               </Layout.Section>
               <Layout.Section oneThird>
