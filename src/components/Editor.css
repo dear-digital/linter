@@ -8,11 +8,11 @@
   max-height: 60vh;
   min-width: 45vw;
   max-width: 45vw;
-  font-size: 12px;
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
   border-radius: 5px;
   border: 2px groove;
+  font-size: 20px;
 }
 
 #input-field {
