@@ -1,17 +1,34 @@
 import React, { useState } from "react";
 import { FormLayout } from "@shopify/polaris";
-import AceEditor from "react-ace"; // Import react-ace
-import "ace-builds/src-noconflict/theme-github"; // Choose a theme
-import "ace-builds/src-noconflict/mode-json"; // Choose a syntax mode
 import "./Editor.css";
 
 function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
   const [text, setText] = useState("");
 
-  const handleTextChange = (newText) => {
-    setText(newText);
-    onJsonChange(newText);
+  const handleTextChange = (event) => {
+    const inputText = event.target.value;
+  
+
+    if (inputText.endsWith("{")) {
+      const newText = inputText + "\n  \" \"\n}";
+      setText(newText);
+      onJsonChange(newText);
+
+      // Set the cursor position between the braces
+      const cursorPosition = newText.length - 5;
+      event.target.setSelectionRange(cursorPosition, cursorPosition);
+    } else if (inputText.endsWith(`"`)) {
+      const newText = inputText + `"`;
+      setText(newText);
+      onJsonChange(newText);
+    } else {
+      setText(inputText);
+      onJsonChange(inputText);
+    }
   };
+
+
+
 
   return (
     <FormLayout>
@@ -19,50 +36,29 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
       <div className="editor-wrapper">
         <div className="input-field-wrapper">
           <p> Paste JSON Code</p>
-          <AceEditor
-            mode="json" // Specify the syntax mode
-            theme="github" // Specify the theme
-            name="input-field"
-            value={jsonCode}
+          <textarea
+            className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea"
+            id="input-field"
+            value={text}
+            label="Paste JSON Code"
             onChange={handleTextChange}
+            spellCheck="false"
             placeholder="Paste your JSON Code here"
-            width="500px"
-            height="300px"
-            fontSize={"20px"}
-            setOptions={{
-              enableBasicAutocompletion: true,
-              enableLiveAutocompletion: true,
-              enableSnippets: false,
-              tabSize: 2,
-            }}
+            style={{ fontSize: "20px" }}
           />
+
         </div>
         <div className="output-field-wrapper">
-          <p> Output JSON Code</p>
-          {/* <textarea
+        <p> Output JSON Code</p>
+         
+          <textarea
             className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea output-field"
             id="output-field"
             value={error ? `${error}` : updatedJson}
             spellCheck="false"
+            style={{ fontSize: "20px" }}
             readOnly
-          /> */}
-          <div className="output-field-wrapper">
-            <AceEditor
-              mode="json" // Specify the syntax mode
-              theme="github" // Specify the theme
-              name="output-field"
-              value={error ? `${error}` : updatedJson}
-              readOnly={true}
-              placeholder="Output JSON Code"
-              width="500px"
-              height="300px"
-              fontSize={20}
-              setOptions={{
-                tabSize: 2,
-              }}
-            />
-          </div>
-
+          />
 
         </div>
       </div>
