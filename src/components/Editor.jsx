@@ -7,7 +7,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
 
   const handleTextChange = (event) => {
     const inputText = event.target.value;
-  
+
 
     if (inputText.endsWith("{")) {
       const newText = inputText + "\n  \" \"\n}";
@@ -44,19 +44,17 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
             onChange={handleTextChange}
             spellCheck="false"
             placeholder="Paste your JSON Code here"
-            style={{ fontSize: "20px" }}
           />
 
         </div>
         <div className="output-field-wrapper">
-        <p> Output JSON Code</p>
-         
+          <p> Output JSON Code</p>
+
           <textarea
             className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea output-field"
             id="output-field"
             value={error ? `${error}` : updatedJson}
             spellCheck="false"
-            style={{ fontSize: "20px" }}
             readOnly
           />
 
