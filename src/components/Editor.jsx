@@ -39,7 +39,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
           <textarea
             className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea"
             id="input-field"
-            value={text}
+            value={jsonCode}
             label="Paste JSON Code"
             onChange={handleTextChange}
             spellCheck="false"
