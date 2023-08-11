@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { FormLayout } from "@shopify/polaris";
+import { FormLayout, TextField } from "@shopify/polaris";
 import "./Editor.css";
 
 function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
   const [text, setText] = useState("");
 
-  const handleTextChange = (event) => {
-    const inputText = event.target.value;
-
-
+  const handleTextChange = (inputText) => {
     if (inputText.endsWith("{")) {
       const newText = inputText + "\n  \" \"\n}";
       setText(newText);
@@ -16,7 +13,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
 
       // Set the cursor position between the braces
       const cursorPosition = newText.length - 5;
-      event.target.setSelectionRange(cursorPosition, cursorPosition);
+      return cursorPosition;
     } else if (inputText.endsWith(`"`)) {
       const newText = inputText + `"`;
       setText(newText);
@@ -25,39 +22,32 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
       setText(inputText);
       onJsonChange(inputText);
     }
+
+    return null;
   };
-
-
-
 
   return (
     <FormLayout>
       <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
       <div className="editor-wrapper">
         <div className="input-field-wrapper">
-          <p> Paste JSON Code</p>
-          <textarea
-            className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea"
-            id="input-field"
+          <TextField
+            multiline={4}
             value={jsonCode}
             label="Paste JSON Code"
             onChange={handleTextChange}
-            spellCheck="false"
+            spellCheck={false}
             placeholder="Paste your JSON Code here"
           />
-
         </div>
         <div className="output-field-wrapper">
-          <p> Output JSON Code</p>
-
-          <textarea
-            className="Polaris-TextField__Input Polaris-TextField__Input--multiline textarea output-field"
-            id="output-field"
+          <TextField
+            multiline={4}
             value={error ? `${error}` : updatedJson}
-            spellCheck="false"
+            label="Output JSON Code"
+            spellCheck={false}
             readOnly
           />
-
         </div>
       </div>
     </FormLayout>
