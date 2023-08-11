@@ -24,7 +24,7 @@ The point values for each task will be determined based on its complexity and si
 Weekly mentoring sessions will be held every Saturday, starting from 11 AM. These sessions will serve as a platform for interns to ask questions, seek guidance, and gain feedback on their contributions. It's a great opportunity to clear doubts and understand more about the project's roadmap and the impact of your contributions.
 
 ## How to Contribute:
-
+Go through the [CONTRIBUTING.md](/CONTRIBUTING.md) file, where all the guidelines have been mentioned that will guide you to make your contribution.
 The project follows a standard fork-and-pull model for contributions via GitHub. Here's a step-by-step guide:
 
 1. **Fork the Repository:** Start by forking the main project repository to your GitHub account.
