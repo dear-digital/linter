@@ -36,18 +36,22 @@ npm i
 git checkout -b <NAME-YOUR-BRANCH>
 ```
 
-8.  Run in local for server and client in a split terminal
+8.  To run Frontend and Backend concurrently
+```
+npm run dev
+``` 
 
-- For client: 
-    ```bash
-    npm client
-    ```
-- For server:
-    ```bash
-    npm server
-    ```
+*More Running Commands:*
+- Runs only for Backend with Nodemon
+```
+npm run server
+```
+- Runs only for Frontend
+```
+npm run client
+```
 
-9.  After done you can now push this changes, for doing that follow the following command chain
+9.  After done you can now commit and push this changes to your created branch, for doing that follow the following command chain
 
 - `git status -s` (Shows the changed files)
 - `git add --all` (Will add all the files to staging area)
