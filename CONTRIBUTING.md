@@ -9,7 +9,7 @@ git clone https://github.com/<YOUR-USERNAME>/linter.git
 2.  Navigate to the project folder
 
 ```
-cd ProjectsHut
+cd linter
 ```
 
 3. Add a reference(remote) to the original repository.
