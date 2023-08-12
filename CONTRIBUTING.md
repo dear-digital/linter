@@ -22,9 +22,11 @@ git remote add upstream https://github.com/dear-digital/linter.git
 git remote -v
 ```
 5. Always take a pull from the upstream repository to your master branch to keep it at par with the main project:
-```git pull upstream main```
+```
+git pull upstream main
+```
 
-6.  Install dependencies
+7.  Install dependencies
 
 ```bash
 npm i 
