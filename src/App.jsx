@@ -10,6 +10,10 @@ function App() {
   const [jsonCode, setJsonCode] = useState("");
   const [updatedJsonCode, setUpdatedJsonCode] = useState("");
 
+  const clearJsonCode = () => {
+    setJsonCode(""); // Clear the JSON code input field
+  };
+
   const handleJsonChange = useCallback((value) => {
     setJsonCode(value);
     // Update the cookie whenever JSON code changes
@@ -88,6 +92,7 @@ function App() {
                     onJsonChange={handleJsonChange}
                     updatedJson={updatedJsonCode}
                     error={error}
+                    clearJsonCode={clearJsonCode}
                   />
                 </Card>
               </Layout.Section>
