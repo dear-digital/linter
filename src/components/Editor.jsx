@@ -1,5 +1,5 @@
-//import { useState, useCallback, useEffect } from "react";
-import { FormLayout, TextField } from "@shopify/polaris";
+import { useState, useCallback, useEffect } from "react";
+import { FormLayout, TextField, Button } from "@shopify/polaris";
 import "./Editor.css";
 
 function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
@@ -10,6 +10,23 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
 
   // Convert the parsed object to a formatted JSON string
   const formattedJsonString = JSON.stringify(parsedUpdatedJson, null, 2); */
+
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopyToClipboard = useCallback(() => {
+    navigator.clipboard
+      .writeText(updatedJson)
+      .then(() => {
+        setIsCopied(true);
+      })
+      .catch((error) => {
+        console.error("Error copying to clipboard:", error);
+      });
+  }, [updatedJson]);
+
+  useEffect(() => {
+    setIsCopied(false); // Reset isCopied when updatedJson changes
+  }, [updatedJson]);
 
   return (
     <FormLayout>
@@ -36,12 +53,11 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
             spellCheck="false"
             autoComplete="off"
           />
+          <Button onClick={handleCopyToClipboard} primary={!isCopied}>
+            {isCopied ? "Copied!" : "Copy to Clipboard"}
+          </Button>
         </div>
-
-        
       </div>
-
-    
     </FormLayout>
   );
 }

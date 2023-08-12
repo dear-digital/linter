@@ -30,9 +30,12 @@ function App() {
       } else {
         setError("Unknown error occurred");
       }
-    }
-    catch (error) {
-      if (error.response && error.response.data && error.response.data.errorMessage) {
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.errorMessage
+      ) {
         setError(error.response.data.errorMessage);
       } else {
         setError("Error occurred while processing the request");
@@ -62,7 +65,12 @@ function App() {
                       Editor
                     </Text>
                   </div>
-                  <Editor jsonCode={jsonCode} onJsonChange={handleJsonChange} updatedJson={updatedJsonCode} error={error} />
+                  <Editor
+                    jsonCode={jsonCode}
+                    onJsonChange={handleJsonChange}
+                    updatedJson={updatedJsonCode}
+                    error={error}
+                  />
                 </Card>
               </Layout.Section>
               <Layout.Section oneThird>
