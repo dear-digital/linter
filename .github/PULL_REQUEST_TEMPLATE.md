@@ -1,4 +1,6 @@
-# Pull Request
+## Pull Request for Issue<Issue Number> #2  Title Here<Issue title in short>
+
+<!-- Put x in [] in order to mark them as check. e.g. [x] will be marked as check -->
 
 Please ensure that your pull request meets the following requirements:
 
@@ -21,10 +23,6 @@ Please review the following aspects during the code review:
 
 - [ ] Logical correctness of the code
 - [ ] Responsiveness
-- [ ] Adequate test coverage and passing tests
-- [ ] Efficient use of resources (memory, CPU, etc.)
-- [ ] Error handling and edge cases
-- [ ] Security considerations
 - [ ] Documentation completeness and clarity
 - [ ] Proper use of libraries and dependencies
 - [ ] Adherence to design patterns and best practices
@@ -33,17 +31,21 @@ Please review the following aspects during the code review:
 
 ## Description
 
-(Kindly provide a concise outline of the adjustments you are proposing or link to a relevant issue)
-<br><br><br><br><br>
-Issue Number [Specify issue number or leave empty]:
+_Issue Number <Specify issue number or leave _empty>:_
 
-## Add some pictures of the changes you made.
+<!-- Kindly provide a concise description  of the adjustments you are proposing or link to a relevant issue -->
 
-<!-- Attach relevant pictures here -->
-<br><br><br>
+
+## Screenshots
+
+<!-- Attach some relevant pictures of the changes you made (if any) -->
 
 
 ## Potential Breaking Changes
+
+<!--
+If you're unsure whether your changes might break something(cause disruptions), it's usually safer to answer "Yes" and let the reviewers decide. If you're confident that your changes are isolated and won't affect existing behavior, you can answer "No."
+ -->
 
 Does this pull request incorporate any modifications that might cause disruptions?
 
@@ -52,7 +54,6 @@ Does this pull request incorporate any modifications that might cause disruption
 
 <hr>
 
-## Have you given as much information as possible about the feature?
-- [ ] Yes, I have provided as much information for the feature.
+**Important:** Before submitting, please ensure to remove unused content (header).
 
-**Important:** Before submitting, please ensure that you have provided sufficient information about the feature.
+- [ ] Yes, I have only kept and provided relevant information.
