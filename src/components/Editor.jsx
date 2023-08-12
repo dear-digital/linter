@@ -34,7 +34,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
           <TextField
             multiline={4}
             value={jsonCode}
-            label="Paste JSON Code"
+            label={` Paste JSON Code Character Count: ${jsonCode.length} `}
             onChange={handleTextChange}
             spellCheck={false}
             placeholder="Paste your JSON Code here"
