@@ -33,18 +33,16 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode, set
       <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
       <div className="editor-wrapper">
         <div className="input-field-wrapper">
+          <div className="characterCount">
+            <h4>Character Count: {jsonCode.length}</h4>
+          </div>
           <TextField
             multiline={4}
             value={jsonCode}
-            label={` Paste JSON Code Character Count: ${jsonCode.length} `}
+            label={` Paste JSON Code`}
             onChange={handleTextChange}
             spellCheck={false}
             placeholder="Paste your JSON Code here"
-            showCharacterCount
-            maxLength={200}
-            helpText={<span style={{ color: 'blue' }}>We’ll use this address if we need to contact you about your account.</span>}
-
-
           />
           <div className="btn-div">
             <Button onClick={clearJsonCode}>Clear</Button>

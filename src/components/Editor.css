@@ -36,7 +36,16 @@
   color: var(--p-color-text);
 }
 
+.input-field-wrapper{
+  position: relative;
+}
 
+.characterCount{
+  position: absolute;
+  top:-20px;
+  right:2px;
+  
+}
 
 
 @media (max-width: 600px) {
@@ -51,8 +60,8 @@
     margin-left: 2vw;
     min-height: 32vh;
     max-height: 60vh;
-    min-width: 65vw;
-    max-width: 90vw;
+    min-width: 80vw;
+    max-width: 950vw;
   }
   .btn-group-wrapper {
     margin-bottom: 30px;
@@ -60,4 +69,8 @@
   .btn-div{
     margin-left: 2vw;
   }
+  .characterCount{
+  position: relative;
+  margin-left: 2vw;
+}
 }
