@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from "react";
-import { FormLayout, TextField } from "@shopify/polaris";
+import { FormLayout, TextField, Button } from "@shopify/polaris";
 import "./Editor.css";
 
-function Editor({ jsonCode, onJsonChange, updatedJson, error, setJsonCode }) {
+function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode, setJsonCode }) {
   const [text, setText] = useState("");
 
   const handleClearButtonClick = useCallback(() => setJsonCode(''), []);
@@ -47,6 +47,9 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, setJsonCode }) {
             onClearButtonClick={handleClearButtonClick}
 
           />
+          <div className="btn-div">
+            <Button onClick={clearJsonCode}>Clear</Button>
+          </div>
         </div>
         <div className="output-field-wrapper">
           <TextField

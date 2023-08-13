@@ -10,6 +10,13 @@ function App() {
   const [jsonCode, setJsonCode] = useState("");
   const [updatedJsonCode, setUpdatedJsonCode] = useState("");
 
+  const clearJsonCode = () => {
+    setJsonCode(""); // Clear the JSON code input field
+    // Clear the jsonCode cookie by setting its expiration to a past date
+    const expirationDate = new Date(0);
+    document.cookie = `jsonCode=; expires=${expirationDate.toUTCString()}; path=/`;
+  };
+
   const handleJsonChange = useCallback((value) => {
     setJsonCode(value);
     // Update the cookie whenever JSON code changes
@@ -88,6 +95,7 @@ function App() {
                     onJsonChange={handleJsonChange}
                     updatedJson={updatedJsonCode}
                     error={error}
+                    clearJsonCode={clearJsonCode}
                     setJsonCode={setJsonCode}
                   />
                 </Card>

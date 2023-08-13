@@ -1,11 +1,11 @@
 name: 🐞 Bug
 description: Report a bug
-title: "[BUG] <title>"
+title: "🐞 [BUG] <title>"
 labels: [Bug]
 body:
 - type: markdown
   attributes:
-    value: "#### *Thanks for taking the time to fill out this bug.*"
+    value: "#### *Thanks for pointing out this bug.*"
     
 - type: checkboxes
   attributes:
@@ -45,8 +45,8 @@ body:
   attributes:
     label: "Screenshots"
     description: If applicable, add screenshots to show the bug.
-    value: |
-      ![DESCRIPTION](LINK.png)
+    placeholder: |
+      ![imageName](url.png)
     render: bash
   validations:
     required: false
@@ -67,7 +67,7 @@ body:
   id: os
   attributes:
     label: "OS"
-    description: In which OS, you found the bug?
+    description: In which Operating Systems, you found the bug?
     multiple: true
     options:
       - Windows
