@@ -36,10 +36,7 @@
   color: var(--p-color-text);
 }
 
-.Polaris-TextField__CharacterCount .Polaris-TextField__AlignFieldBottom {
-  color: #ff0000 !important; /* Customize the color as needed */
-  font-size: 12px; /* Customize the font size as needed */
-}
+
 
 
 @media (max-width: 600px) {
