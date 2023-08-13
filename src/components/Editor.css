@@ -29,6 +29,7 @@
 .Polaris-Label {
   font-weight: var(--p-font-weight-medium);
   margin-bottom: 5px;
+  color: rgb(42, 172, 187);
 }
 
 .btn-div :hover {
@@ -36,16 +37,18 @@
   color: var(--p-color-text);
 }
 
-.input-field-wrapper{
+/* .input-field-wrapper{
   position: relative;
-}
+} */
 
-.characterCount{
+/* .characterCount{
   position: absolute;
   top:-20px;
   right:2px;
   
-}
+} */
+
+
 
 
 @media (max-width: 600px) {
@@ -69,8 +72,12 @@
   .btn-div{
     margin-left: 2vw;
   }
-  .characterCount{
+
+  .header{
+    margin-left: 2vw;
+  }
+  /* .characterCount{
   position: relative;
   margin-left: 2vw;
-}
+} */
 }
