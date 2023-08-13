@@ -1,11 +1,10 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { FormLayout, TextField, Button } from "@shopify/polaris";
 import "./Editor.css";
 
 function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode, setJsonCode }) {
   const [text, setText] = useState("");
 
-  const handleClearButtonClick = useCallback(() => setJsonCode(''), []);
 
 
   const handleTextChange = (inputText) => {
@@ -43,8 +42,6 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode, set
             placeholder="Paste your JSON Code here"
             showCharacterCount
             maxLength={200}
-            clearButton
-            onClearButtonClick={handleClearButtonClick}
 
           />
           <div className="btn-div">
