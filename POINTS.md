@@ -1,5 +1,6 @@
 | Github username | Points |
 |-----------------|--------|
-|        dave-SYD         |    16    |
-| anishdalvi | 12 |
-| abhishekjani08 | 2 |
+| abhishekjani08 | 34 |
+|        dave-SYD         |    22    |
+| anishdalvi | 14 |
+| tanujbordikar | 10 |

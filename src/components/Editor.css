@@ -8,11 +8,11 @@
   max-height: 60vh;
   min-width: 45vw;
   max-width: 45vw;
-  font-size: 12px;
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
   border-radius: 5px;
   border: 2px groove;
+  font-size: 20px;
 }
 
 #input-field {
@@ -29,6 +29,10 @@
 .Polaris-Label {
   font-weight: var(--p-font-weight-medium);
   margin-bottom: 5px;
+}
+.btn-div :hover {
+  background-color: var(--p-color-bg-info-subdued);
+  color: var(--p-color-text);
 }
 
 @media (max-width: 600px) {
@@ -48,5 +52,8 @@
   }
   .btn-group-wrapper {
     margin-bottom: 30px;
+  }
+  .btn-div{
+    margin-left: 2vw;
   }
 }

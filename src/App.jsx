@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Page, Layout, Card, Text, LegacyStack } from "@shopify/polaris";
 import Editor from "./components/Editor";
 import LinterButtons from "./components/LinterButtons";
@@ -10,8 +10,30 @@ function App() {
   const [jsonCode, setJsonCode] = useState("");
   const [updatedJsonCode, setUpdatedJsonCode] = useState("");
 
+  const clearJsonCode = () => {
+    setJsonCode(""); // Clear the JSON code input field
+  };
+
   const handleJsonChange = useCallback((value) => {
     setJsonCode(value);
+    // Update the cookie whenever JSON code changes
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 7);
+    document.cookie = `jsonCode=${encodeURIComponent(
+      value
+    )}; expires=${expirationDate.toUTCString()}; path=/`;
+  }, []);
+
+  useEffect(() => {
+    // Load stored JSON code from the cookie on initial render
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+      const [name, value] = cookie.split("=");
+      if (name === "jsonCode") {
+        setJsonCode(decodeURIComponent(value));
+        break;
+      }
+    }
   }, []);
 
   const handleFormatJSON = useCallback(async () => {
@@ -70,6 +92,10 @@ function App() {
                     onJsonChange={handleJsonChange}
                     updatedJson={updatedJsonCode}
                     error={error}
+<<<<<<< HEAD
+=======
+                    clearJsonCode={clearJsonCode}
+>>>>>>> 6ea315ccf966c67240d389994fd39327493f239e
                   />
                 </Card>
               </Layout.Section>
