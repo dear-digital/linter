@@ -1,50 +1,50 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState } from "react";
 import { FormLayout, TextField, Button } from "@shopify/polaris";
 import "./Editor.css";
 
 function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode, setJsonCode }) {
   const [text, setText] = useState("");
-  const textAreaRef = useRef(null);
 
-  const handleTextChange = useCallback(
-    (inputText) => {
-      let newText = inputText;
-      let cursorPosition = inputText.length;
 
-      if (inputText.endsWith("{")) {
-        newText = inputText + '\n  ""\n}';
-        cursorPosition += 4;
-      } else if (inputText.endsWith(`"`)) {
-        newText = inputText + `"`;
-        cursorPosition++;
-      }
 
+  const handleTextChange = (inputText) => {
+    if (inputText.endsWith("{")) {
+      const newText = inputText + "\n  \" \"\n}";
       setText(newText);
       onJsonChange(newText);
 
-      // Set the cursor position asynchronously after the component re-renders
-      setTimeout(() => {
-        const editorRef = textAreaRef.current;
-        editorRef.selectionStart = cursorPosition;
-        editorRef.selectionEnd = cursorPosition;
-      }, 0);
-    },
-    [onJsonChange]
-  );
+      // Set the cursor position between the braces
+      const cursorPosition = newText.length - 5;
+      return cursorPosition;
+    } else if (inputText.endsWith(`"`)) {
+      const newText = inputText + `"`;
+      setText(newText);
+      onJsonChange(newText);
+    } else {
+      setText(inputText);
+      onJsonChange(inputText);
+    }
+
+    return null;
+  };
 
   return (
     <FormLayout>
       <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
       <div className="editor-wrapper">
         <div className="input-field-wrapper">
-          <textarea
-            rows={4}
+          <TextField
+            multiline={4}
             value={jsonCode}
-            onChange={(e) => handleTextChange(e.target.value)}
+            label={` Paste JSON Code Character Count: ${jsonCode.length} `}
+            onChange={handleTextChange}
             spellCheck={false}
             placeholder="Paste your JSON Code here"
-            className="custom-textarea"
-            ref={textAreaRef}
+            showCharacterCount
+            maxLength={200}
+            helpText={<span style={{ color: 'blue' }}>We’ll use this address if we need to contact you about your account.</span>}
+
+
           />
           <div className="btn-div">
             <Button onClick={clearJsonCode}>Clear</Button>
