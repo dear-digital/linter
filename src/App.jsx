@@ -34,8 +34,7 @@ function App() {
 
   const handleFormatJSON = useCallback(async () => {
     try {
-      const response = await axios.post("/ai-api", {
-      //const response = await axios.post("/api/format-json", {
+      const response = await axios.post("/api-local/format-json", {
         jsonString: jsonCode,
       });
 
@@ -89,6 +88,7 @@ function App() {
                     onJsonChange={handleJsonChange}
                     updatedJson={updatedJsonCode}
                     error={error}
+                    setJsonCode={setJsonCode}
                   />
                 </Card>
               </Layout.Section>

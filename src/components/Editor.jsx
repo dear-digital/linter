@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { FormLayout, TextField } from "@shopify/polaris";
 import "./Editor.css";
 
-function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
+function Editor({ jsonCode, onJsonChange, updatedJson, error, setJsonCode }) {
   const [text, setText] = useState("");
+
+  const handleClearButtonClick = useCallback(() => setJsonCode(''), []);
+
 
   const handleTextChange = (inputText) => {
     if (inputText.endsWith("{")) {
@@ -38,6 +41,11 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
             onChange={handleTextChange}
             spellCheck={false}
             placeholder="Paste your JSON Code here"
+            showCharacterCount
+            maxLength={200}
+            clearButton
+            onClearButtonClick={handleClearButtonClick}
+
           />
         </div>
         <div className="output-field-wrapper">
@@ -47,6 +55,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
             label="Output JSON Code"
             spellCheck={false}
             readOnly
+            selectTextOnFocus
           />
         </div>
       </div>
