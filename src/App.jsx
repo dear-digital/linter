@@ -92,7 +92,10 @@ function App() {
                     onJsonChange={handleJsonChange}
                     updatedJson={updatedJsonCode}
                     error={error}
+<<<<<<< HEAD
+=======
                     clearJsonCode={clearJsonCode}
+>>>>>>> 6ea315ccf966c67240d389994fd39327493f239e
                   />
                 </Card>
               </Layout.Section>

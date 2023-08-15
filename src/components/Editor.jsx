@@ -1,30 +1,32 @@
-import React, { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { FormLayout, TextField, Button } from "@shopify/polaris";
 import "./Editor.css";
 
-function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
-  const [text, setText] = useState("");
+function Editor({ jsonCode, onJsonChange, updatedJson, error }) {
+  //const [jsonCode, setJsonCode] = useState("");
+  //const [updatedJsonCode, setUpdatedJsonCode] = useState("");
+  // Convert the updatedJson string to an object
+  /* const parsedUpdatedJson = JSON.parse(updatedJson);
 
-  const handleTextChange = (inputText) => {
-    if (inputText.endsWith("{")) {
-      const newText = inputText + "\n  \" \"\n}";
-      setText(newText);
-      onJsonChange(newText);
+  // Convert the parsed object to a formatted JSON string
+  const formattedJsonString = JSON.stringify(parsedUpdatedJson, null, 2); */
 
-      // Set the cursor position between the braces
-      const cursorPosition = newText.length - 5;
-      return cursorPosition;
-    } else if (inputText.endsWith(`"`)) {
-      const newText = inputText + `"`;
-      setText(newText);
-      onJsonChange(newText);
-    } else {
-      setText(inputText);
-      onJsonChange(inputText);
-    }
+  const [isCopied, setIsCopied] = useState(false);
 
-    return null;
-  };
+  const handleCopyToClipboard = useCallback(() => {
+    navigator.clipboard
+      .writeText(updatedJson)
+      .then(() => {
+        setIsCopied(true);
+      })
+      .catch((error) => {
+        console.error("Error copying to clipboard:", error);
+      });
+  }, [updatedJson]);
+
+  useEffect(() => {
+    setIsCopied(false); // Reset isCopied when updatedJson changes
+  }, [updatedJson]);
 
   return (
     <FormLayout>
@@ -32,25 +34,28 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
       <div className="editor-wrapper">
         <div className="input-field-wrapper">
           <TextField
+            wrap="true"
+            id="input-field"
+            label="Paste JSON Code"
             multiline={4}
             value={jsonCode}
-            label="Paste JSON Code"
-            onChange={handleTextChange}
-            spellCheck={false}
+            onChange={onJsonChange}
+            spellCheck="false"
             placeholder="Paste your JSON Code here"
           />
-          <div className="btn-div">
-            <Button onClick={clearJsonCode}>Clear</Button>
-          </div>
         </div>
         <div className="output-field-wrapper">
           <TextField
+            id="output-field"
+            label="Result"
             multiline={4}
             value={error ? `${error}` : updatedJson}
-            label="Output JSON Code"
-            spellCheck={false}
-            readOnly
+            spellCheck="false"
+            autoComplete="off"
           />
+          <Button onClick={handleCopyToClipboard} primary={!isCopied}>
+            {isCopied ? "Copied!" : "Copy to Clipboard"}
+          </Button>
         </div>
       </div>
     </FormLayout>
