@@ -26,6 +26,21 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
     return null;
   };
 
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        setText(e.target.result);
+        onJsonChange(e.target.result);
+      };
+
+      reader.readAsText(file);
+    }
+  };
+
   return (
     <FormLayout>
       <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
@@ -39,6 +54,19 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
             spellCheck={false}
             placeholder="Paste your JSON Code here"
           />
+         
+
+          <div className="lint-btn-wrapper">
+            <label className="Polaris-Button" htmlFor="file-upload">
+              Upload JSON File
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              accept=".json"
+              onChange={handleFileUpload}
+            />
+          </div>
           <div className="btn-div">
             <Button onClick={clearJsonCode}>Clear</Button>
           </div>
