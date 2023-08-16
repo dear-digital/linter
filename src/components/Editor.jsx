@@ -99,11 +99,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
             readOnly
           />
           <Button onClick={() => handleCopyToClipboard(updatedJson)}>
-            {error
-              ? "Error"
-              : isCopied
-              ? "Copied"
-              : "Copy Output JSON to Clipboard"}
+            {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
           </Button>
         </div>
       </div>
