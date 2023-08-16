@@ -4,10 +4,11 @@ import "./Editor.css";
 
 function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
   const [text, setText] = useState("");
+  const [isCopied, setIsCopied] = useState(false);
 
   const handleTextChange = (inputText) => {
     if (inputText.endsWith("{")) {
-      const newText = inputText + "\n  \" \"\n}";
+      const newText = inputText + '\n  " "\n}';
       setText(newText);
       onJsonChange(newText);
 
@@ -22,7 +23,8 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
       setText(inputText);
       onJsonChange(inputText);
     }
-
+    // Reset the copy button state
+    setIsCopied(false);
     return null;
   };
 
@@ -41,6 +43,24 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
     }
   };
 
+  const handleCopyToClipboard = (textToCopy) => {
+    if (!error) {
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = textToCopy;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempTextArea);
+
+      // Update the copy button state
+      setIsCopied(true);
+    } else {
+      // Display the error (you can adjust the UI as needed)
+      setIsCopied(false);
+      alert(`Error: ${error}`);
+    }
+  };
+
   return (
     <FormLayout>
       <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
@@ -54,7 +74,6 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
             spellCheck={false}
             placeholder="Paste your JSON Code here"
           />
-         
 
           <div className="lint-btn-wrapper">
             <label className="Polaris-Button" htmlFor="file-upload">
@@ -79,6 +98,13 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
             spellCheck={false}
             readOnly
           />
+          <Button onClick={() => handleCopyToClipboard(updatedJson)}>
+            {error
+              ? "Error"
+              : isCopied
+              ? "Copied"
+              : "Copy Output JSON to Clipboard"}
+          </Button>
         </div>
       </div>
     </FormLayout>
