@@ -73,6 +73,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
             onChange={handleTextChange}
             spellCheck={false}
             placeholder="Paste your JSON Code here"
+            aria-label="Input JSON Code"
           />
 
           <div className="lint-btn-wrapper">
@@ -84,6 +85,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
               type="file"
               accept=".json"
               onChange={handleFileUpload}
+              aria-label="Upload JSON File Input"
             />
           </div>
           <div className="btn-div">
@@ -97,6 +99,7 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
             label="Output JSON Code"
             spellCheck={false}
             readOnly
+            aria-label="Output JSON Code"
           />
           <Button onClick={() => handleCopyToClipboard(updatedJson)}>
             {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}

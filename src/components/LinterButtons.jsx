@@ -2,23 +2,28 @@ import { ButtonGroup, Button } from "@shopify/polaris";
 import "./LinterButtons.css";
 
 function LinterButtons({ onFormatJSON }) {
-
-
   /* const [inputJson, setInputJson] = useState('');
 
   const handleButtonClick = () => {
     onFormatJSON(inputJson);
   }; */
 
-
   return (
-    <ButtonGroup>
+    <ButtonGroup role="group" aria-label="Linting Options">
       <div className="btn-group-wrapper">
         <div className="lint-btn-wrapper">
-          <Button id="local-btn" onClick={onFormatJSON}>Lint Locally</Button>
+          <Button
+            id="local-btn"
+            onClick={onFormatJSON}
+            accessibilityLabel="Lint Locally"
+          >
+            Lint Locally
+          </Button>
         </div>
         <div className="lint-btn-wrapper">
-          <Button id="api-btn">Lint with AI API</Button>
+          <Button id="api-btn" accessibilityLabel="Lint with AI API">
+            Lint with AI API
+          </Button>
         </div>
       </div>
     </ButtonGroup>
