@@ -105,16 +105,16 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode, set
               </div>
             </div>
             <div className="output-field-wrapper">
-          <div className="characterCount">
-            <h4>Output JSON Code</h4>
-          </div>
+              <div className="header">
+                <h4>Output JSON Code</h4>
+              </div>
               <TextField
                 multiline={4}
                 value={error ? `${error}` : updatedJson}
                 label={`Character Count: ${updatedJson.length}`}
                 spellCheck={false}
                 readOnly
-            selectTextOnFocus
+                selectTextOnFocus
               />
 
               <Button onClick={() => handleCopyToClipboard(updatedJson)} disabled={!updatedJson}>
