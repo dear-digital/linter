@@ -1,11 +1,13 @@
+/* Editor.css */
+
 .editor-wrapper {
   display: flex;
   justify-content: space-around;
 }
 
 .Polaris-TextField__Input {
-  min-height: 50vh;
-  max-height: 60vh;
+  min-height: 45vh;
+  max-height: 45vh;
   min-width: 45vw;
   max-width: 45vw;
   font-weight: 400;
@@ -37,9 +39,11 @@
   color: var(--p-color-text);
 }
 
-
-
-
+.lint-btn-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add gap between the TextField and the button */
+}
 
 @media (max-width: 600px) {
   .editor-wrapper {
