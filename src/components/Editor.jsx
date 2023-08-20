@@ -114,8 +114,11 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
                 {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
               </Button>
 
-              <div className="btn-div">
-                <Button onClick={handleDownloadJson} disabled={!updatedJson}>
+              <div className={`${!updatedJson ? 'disabled-button' : ''} btn-div`}>
+                <Button
+                  onClick={handleDownloadJson}
+                  disabled={!updatedJson}
+                >
                   Download Json Code
                 </Button>
               </div>
