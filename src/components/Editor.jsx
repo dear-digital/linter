@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FormLayout, TextField, Button } from "@shopify/polaris";
 import "./Editor.css";
 
-function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
+function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode, setJsonCode }) {
   const [text, setText] = useState("");
   const [isCopied, setIsCopied] = useState(false);
 
@@ -77,10 +77,13 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
           <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
           <div className="editor-wrapper">
             <div className="input-field-wrapper">
+          <div className="header">
+            <h4>Your JSON Code</h4>
+          </div>
               <TextField
                 multiline={4}
                 value={jsonCode}
-                label="Paste JSON Code"
+                label={`Character Count: ${jsonCode.length}`}
                 onChange={handleTextChange}
                 spellCheck={false}
                 placeholder="Paste your JSON Code here"
@@ -102,12 +105,16 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
               </div>
             </div>
             <div className="output-field-wrapper">
+              <div className="header">
+                <h4>Output JSON Code</h4>
+              </div>
               <TextField
                 multiline={4}
                 value={error ? `${error}` : updatedJson}
-                label="Output JSON Code"
+                label={`Character Count: ${updatedJson.length}`}
                 spellCheck={false}
                 readOnly
+                selectTextOnFocus
               />
 
               <Button onClick={() => handleCopyToClipboard(updatedJson)} disabled={!updatedJson}>
