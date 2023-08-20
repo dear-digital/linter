@@ -44,67 +44,86 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
   };
 
   const handleCopyToClipboard = (textToCopy) => {
-    if (!error) {
-      const tempTextArea = document.createElement("textarea");
-      tempTextArea.value = textToCopy;
-      document.body.appendChild(tempTextArea);
-      tempTextArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempTextArea);
+        if (!error) {
+          const tempTextArea = document.createElement("textarea");
+          tempTextArea.value = textToCopy;
+          document.body.appendChild(tempTextArea);
+          tempTextArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempTextArea);
 
-      // Update the copy button state
-      setIsCopied(true);
-    } else {
-      // Display the error (you can adjust the UI as needed)
-      setIsCopied(false);
-      alert(`Error: ${error}`);
-    }
+          // Update the copy button state
+          setIsCopied(true);
+        } else {
+          // Display the error (you can adjust the UI as needed)
+          setIsCopied(false);
+          alert(`Error: ${error}`);
+        }
+    
   };
+  const handleDownloadJson = () => {
+    if (updatedJson) {
+      const jsonBlob = new Blob([updatedJson], { type: "application/json" });
+      const downloadLink = document.createElement("a");
+      downloadLink.href = URL.createObjectURL(jsonBlob);
+      downloadLink.download = "linter-output.json";
+      downloadLink.click();
 
-  return (
-    <FormLayout>
-      <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
-      <div className="editor-wrapper">
-        <div className="input-field-wrapper">
-          <TextField
-            multiline={4}
-            value={jsonCode}
-            label="Paste JSON Code"
-            onChange={handleTextChange}
-            spellCheck={false}
-            placeholder="Paste your JSON Code here"
-          />
+    }
+  }
 
-          <div className="lint-btn-wrapper">
-            <label className="Polaris-Button" htmlFor="file-upload">
-              Upload JSON File
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              accept=".json"
-              onChange={handleFileUpload}
-            />
+      return (
+        <FormLayout>
+          <style>{`.Polaris-TextField__Resizer {display: none;}`}</style>
+          <div className="editor-wrapper">
+            <div className="input-field-wrapper">
+              <TextField
+                multiline={4}
+                value={jsonCode}
+                label="Paste JSON Code"
+                onChange={handleTextChange}
+                spellCheck={false}
+                placeholder="Paste your JSON Code here"
+              />
+
+              <div className="lint-btn-wrapper">
+                <label className="Polaris-Button" htmlFor="file-upload">
+                  Upload JSON File
+                </label>
+                <input
+                  id="file-upload"
+                  type="file"
+                  accept=".json"
+                  onChange={handleFileUpload}
+                />
+              </div>
+              <div className="btn-div">
+                <Button onClick={clearJsonCode}>Clear</Button>
+              </div>
+            </div>
+            <div className="output-field-wrapper">
+              <TextField
+                multiline={4}
+                value={error ? `${error}` : updatedJson}
+                label="Output JSON Code"
+                spellCheck={false}
+                readOnly
+              />
+
+              <Button onClick={() => handleCopyToClipboard(updatedJson)} disabled={!updatedJson}>
+                {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
+              </Button>
+
+              <div className="btn-div">
+                <Button onClick={handleDownloadJson} disabled={!updatedJson}>
+                  Download Json Code
+                </Button>
+              </div>
+
+            </div>
           </div>
-          <div className="btn-div">
-            <Button onClick={clearJsonCode}>Clear</Button>
-          </div>
-        </div>
-        <div className="output-field-wrapper">
-          <TextField
-            multiline={4}
-            value={error ? `${error}` : updatedJson}
-            label="Output JSON Code"
-            spellCheck={false}
-            readOnly
-          />
-          <Button onClick={() => handleCopyToClipboard(updatedJson)}>
-            {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
-          </Button>
-        </div>
-      </div>
-    </FormLayout>
-  );
-}
+        </FormLayout>
+      );
+    }
 
-export default Editor;
+    export default Editor;
