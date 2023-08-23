@@ -41,7 +41,7 @@ function App() {
 
   const handleFormatJSON = useCallback(async () => {
     try {
-      const response = await axios.post("/api/format-json", {
+      const response = await axios.post("/api-local/format-json", {
         jsonString: jsonCode,
       });
 
@@ -87,7 +87,7 @@ function App() {
                 <Card sectioned>
                   <div className="subtitle-wrapper">
                     <Text variant="heading3xl" as="h2">
-                      Editor
+                      Editor 
                     </Text>
                   </div>
                   <Editor
@@ -96,6 +96,7 @@ function App() {
                     updatedJson={updatedJsonCode}
                     error={error}
                     clearJsonCode={clearJsonCode}
+                    setJsonCode={setJsonCode}
                   />
                 </Card>
               </Layout.Section>

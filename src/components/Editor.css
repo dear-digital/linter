@@ -29,9 +29,19 @@
 }
 
 .Polaris-Label {
-  font-weight: var(--p-font-weight-medium);
-  margin-bottom: 5px;
+  font-weight: var(--p-font-weight-bold);
+  font-family: var(--p-font-family-mono);
+  margin-bottom: 8px;
+  font-size: var(--p-font-size-100);
+  /* color: rgb(24, 162, 177); */  /* Old Blue Color */
+  color: rgb(240, 236, 236);
+  background-color: rgb(29, 28, 28);
+  width: fit-content;
+  padding: 3px 10px;
+  border-radius: 8px;
+  
 }
+
 .btn-div :hover {
   background-color: var(--p-color-bg-info-subdued);
   color: var(--p-color-text);
@@ -41,6 +51,10 @@
   display: flex;
   align-items: center;
   gap: 10px; /* Add gap between the TextField and the button */
+}
+
+.header h4{
+  padding: 0;
 }
 
 @media (max-width: 600px) {
@@ -55,8 +69,8 @@
     margin-left: 2vw;
     min-height: 32vh;
     max-height: 60vh;
-    min-width: 65vw;
-    max-width: 90vw;
+    min-width: 80vw;
+    max-width: 950vw;
   }
   .btn-group-wrapper {
     margin-bottom: 30px;
@@ -64,4 +78,16 @@
   .btn-div{
     margin-left: 2vw;
   }
+
+  .header{
+    margin-left: 2vw;
+  }
+  .Polaris-Label {
+    margin-left: 2vw;
+    padding: 3px 5px;
+  }
+  /* .characterCount{
+  position: relative;
+  margin-left: 2vw;
+} */
 }
