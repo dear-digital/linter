@@ -33,13 +33,16 @@
   font-family: var(--p-font-family-mono);
   margin-bottom: 8px;
   font-size: var(--p-font-size-100);
-  /* color: rgb(24, 162, 177); */  /* Old Blue Color */
+  /* color: rgb(24, 162, 177); */ /* Old Blue Color */
   color: rgb(240, 236, 236);
   background-color: rgb(29, 28, 28);
   width: fit-content;
   padding: 3px 10px;
   border-radius: 8px;
-  
+}
+
+.btn-div {
+  margin-bottom: 5px;
 }
 
 .btn-div :hover {
@@ -47,13 +50,16 @@
   color: var(--p-color-text);
 }
 
-.lint-btn-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Add gap between the TextField and the button */
+.selected-file-name {
+  pointer-events: none; /* Disable interactions */
+  user-select: none; /* Disable text selection */
+  color: var(--p-color-bg-inverse);
+  font-family: var(--p-font-family-sans);
+  font-size: var(--p-font-size-300);
+  font-weight: var(--p-font-weight-semibold);
 }
 
-.header h4{
+.header h4 {
   padding: 0;
 }
 
@@ -75,11 +81,11 @@
   .btn-group-wrapper {
     margin-bottom: 30px;
   }
-  .btn-div{
+  .btn-div {
     margin-left: 2vw;
   }
 
-  .header{
+  .header {
     margin-left: 2vw;
   }
   .Polaris-Label {
