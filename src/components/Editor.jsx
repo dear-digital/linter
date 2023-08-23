@@ -60,6 +60,15 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
       alert(`Error: ${error}`);
     }
   };
+  const handleDownloadJson = () => {
+    if (updatedJson) {
+      const jsonBlob = new Blob([updatedJson], { type: "application/json" });
+      const downloadLink = document.createElement("a");
+      downloadLink.href = URL.createObjectURL(jsonBlob);
+      downloadLink.download = "linter-output.json";
+      downloadLink.click();
+    }
+  };
 
   return (
     <FormLayout>
@@ -101,9 +110,19 @@ function Editor({ jsonCode, onJsonChange, updatedJson, error, clearJsonCode }) {
             readOnly
             aria-label="Output JSON Code"
           />
-          <Button onClick={() => handleCopyToClipboard(updatedJson)}>
+
+          <Button
+            onClick={() => handleCopyToClipboard(updatedJson)}
+            disabled={!updatedJson}
+          >
             {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
           </Button>
+
+          <div className="btn-div">
+            <Button onClick={handleDownloadJson} disabled={!updatedJson}>
+              Download Json Code
+            </Button>
+          </div>
         </div>
       </div>
     </FormLayout>
