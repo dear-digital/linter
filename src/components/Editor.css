@@ -81,8 +81,6 @@
 }
 
 
-
-
 @media (max-width: 600px) {
   .editor-wrapper {
     flex-direction: column;
@@ -117,7 +115,6 @@
   }
  
 }
-
 
 @media (max-width: 400px){
  .selected-file-name{
