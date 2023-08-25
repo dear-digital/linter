@@ -127,7 +127,7 @@ function Editor({
             readOnly
             selectTextOnFocus
           />
-          <div className="btn-div">
+          <div className={`${!updatedJson ? 'disabled-button' : ''} btn-div`}>
             <Button
               onClick={() => handleCopyToClipboard(updatedJson)}
               disabled={!updatedJson}
@@ -136,8 +136,11 @@ function Editor({
             </Button>
           </div>
 
-          <div className="btn-div">
-            <Button onClick={handleDownloadJson} disabled={!updatedJson}>
+          <div className={`${!updatedJson ? 'disabled-button' : ''} btn-div`}>
+            <Button
+                  onClick={handleDownloadJson}
+                  disabled={!updatedJson}
+                >
               Download Json Code
             </Button>
           </div>

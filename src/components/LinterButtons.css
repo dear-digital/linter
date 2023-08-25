@@ -25,3 +25,29 @@
 .lint-btn-wrapper :active {
   background-color: transparent;
 }
+
+
+@media (max-width: 600px){
+  .Polaris-Button {
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0px 10px 0 0;
+    border-radius: 3px;
+    
+  }
+
+}
+
+
+@media (max-width: 400px){
+  .Polaris-Button {
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px 10px 0 0;
+    border-radius: 3px;
+    
+  }
+
+}
