@@ -29,25 +29,34 @@
 }
 
 .Polaris-Label {
-  font-weight: var(--p-font-weight-medium);
+  font-weight: var(--p-font-weight-bold);
+  font-family: var(--p-font-family-mono);
+  margin-bottom: 8px;
+  font-size: var(--p-font-size-100);
+  /* color: rgb(24, 162, 177); */ /* Old Blue Color */
+  color: rgb(240, 236, 236);
+  background-color: rgb(29, 28, 28);
+  width: fit-content;
+  padding: 3px 10px;
+  border-radius: 8px;
+}
+
+.btn-div {
   margin-bottom: 5px;
 }
 
 
+
 .disabled-button{
-   pointer-events: none !important;
-  opacity: 0.6;
+  pointer-events: none !important;
+  opacity: 0.8;
 }
+
 
 .btn-div :hover {
   background-color: var(--p-color-bg-info-subdued);
   color: var(--p-color-text);
 }
-
-/* .btn-div Button:not([disabled]):hover {
-  background-color: var(--p-color-bg-info-subdued);
-  color: var(--p-color-text);
-} */
 
 
 
@@ -56,6 +65,23 @@
   align-items: center;
   gap: 10px; /* Add gap between the TextField and the button */
 }
+
+
+.selected-file-name {
+  pointer-events: none; /* Disable interactions */
+  user-select: none; /* Disable text selection */
+  color: var(--p-color-bg-inverse);
+  font-family: var(--p-font-family-sans);
+  font-size: var(--p-font-size-200);
+  font-weight: var(--p-font-weight-semibold);
+}
+
+.header h4 {
+  padding: 0;
+}
+
+
+
 
 @media (max-width: 600px) {
   .editor-wrapper {
@@ -69,13 +95,32 @@
     margin-left: 2vw;
     min-height: 32vh;
     max-height: 60vh;
-    min-width: 65vw;
-    max-width: 90vw;
+    min-width: 80vw;
+    max-width: 950vw;
   }
   .btn-group-wrapper {
     margin-bottom: 30px;
   }
-  .btn-div{
+  .btn-div {
     margin-left: 2vw;
+  }
+
+  .header {
+    margin-left: 2vw;
+  }
+  .Polaris-Label {
+    margin-left: 2vw;
+    padding: 3px 5px;
+  }
+  .selected-file-name{
+    font-size: 15px;
+  }
+ 
+}
+
+
+@media (max-width: 400px){
+ .selected-file-name{
+    font-size: 13px;
   }
 }
