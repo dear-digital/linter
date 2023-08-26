@@ -12,6 +12,7 @@ function Editor({
 }) {
   const [text, setText] = useState("");
   const [isCopied, setIsCopied] = useState(false);
+  const [selectedFileName, setSelectedFileName] = useState("");
 
   const handleTextChange = (inputText) => {
     if (inputText.endsWith("{")) {
@@ -47,6 +48,7 @@ function Editor({
       };
 
       reader.readAsText(file);
+      setSelectedFileName(file.name); // Set the selected file name
     }
   };
 
@@ -94,40 +96,49 @@ function Editor({
             placeholder="Paste your JSON Code here"
             aria-label="Input JSON Code"
           />
-
-          <div className="lint-btn-wrapper">
-            <label className="Polaris-Button" htmlFor="file-upload">
+          <div className="btn-div">
+            <Button
+              onClick={() => document.getElementById("file-upload").click()}
+            >
               Upload JSON File
-            </label>
+            </Button>
+            <span className="selected-file-name">{selectedFileName}</span>
             <input
               id="file-upload"
               type="file"
               accept=".json"
               onChange={handleFileUpload}
+              style={{ display: "none" }}
               aria-label="Upload JSON File Input"
             />
           </div>
+
           <div className="btn-div">
             <Button onClick={clearJsonCode}>Clear</Button>
           </div>
         </div>
         <div className="output-field-wrapper">
+          <div className="header">
+            <h4>Output JSON Code</h4>
+          </div>
           <TextField
             multiline={4}
             value={error ? `${error}` : updatedJson}
-            label="Output JSON Code"
+            label={`Character Count: ${updatedJson.length}`}
             spellCheck={false}
             readOnly
+            selectTextOnFocus
           />
+          <div className={`${!updatedJson ? "disabled-button" : ""} btn-div`}>
+            <Button
+              onClick={() => handleCopyToClipboard(updatedJson)}
+              disabled={!updatedJson}
+            >
+              {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
+            </Button>
+          </div>
 
-          <Button
-            onClick={() => handleCopyToClipboard(updatedJson)}
-            disabled={!updatedJson}
-          >
-            {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
-          </Button>
-
-          <div className="btn-div">
+          <div className={`${!updatedJson ? "disabled-button" : ""} btn-div`}>
             <Button onClick={handleDownloadJson} disabled={!updatedJson}>
               Download Json Code
             </Button>

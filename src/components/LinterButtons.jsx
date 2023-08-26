@@ -2,12 +2,6 @@ import { ButtonGroup, Button } from "@shopify/polaris";
 import "./LinterButtons.css";
 
 function LinterButtons({ onFormatJSON }) {
-  /* const [inputJson, setInputJson] = useState('');
-
-  const handleButtonClick = () => {
-    onFormatJSON(inputJson);
-  }; */
-
   return (
     <ButtonGroup role="group" aria-label="Linting Options">
       <div className="btn-group-wrapper">
