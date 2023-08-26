@@ -94,6 +94,7 @@ function Editor({
             onChange={handleTextChange}
             spellCheck={false}
             placeholder="Paste your JSON Code here"
+            aria-label="Input JSON Code"
           />
           <div className="btn-div">
             <Button
@@ -108,6 +109,7 @@ function Editor({
               accept=".json"
               onChange={handleFileUpload}
               style={{ display: "none" }}
+              aria-label="Upload JSON File Input"
             />
           </div>
 
@@ -127,7 +129,7 @@ function Editor({
             readOnly
             selectTextOnFocus
           />
-          <div className={`${!updatedJson ? 'disabled-button' : ''} btn-div`}>
+          <div className={`${!updatedJson ? "disabled-button" : ""} btn-div`}>
             <Button
               onClick={() => handleCopyToClipboard(updatedJson)}
               disabled={!updatedJson}
@@ -136,11 +138,8 @@ function Editor({
             </Button>
           </div>
 
-          <div className={`${!updatedJson ? 'disabled-button' : ''} btn-div`}>
-            <Button
-                  onClick={handleDownloadJson}
-                  disabled={!updatedJson}
-                >
+          <div className={`${!updatedJson ? "disabled-button" : ""} btn-div`}>
+            <Button onClick={handleDownloadJson} disabled={!updatedJson}>
               Download Json Code
             </Button>
           </div>
