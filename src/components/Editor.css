@@ -80,6 +80,11 @@
   padding: 0;
 }
 
+#icons {
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+}
 
 @media (max-width: 600px) {
   .editor-wrapper {
