@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { FormLayout, TextField, Button } from "@shopify/polaris";
 import "./Editor.css";
-
+import {
+  UploadMajor, ClipboardMinor, InstallMinor, CircleCancelMajor
+} from '@shopify/polaris-icons';
 function Editor({
   jsonCode,
   onJsonChange,
@@ -99,6 +101,7 @@ function Editor({
           <div className="btn-div">
             <Button
               onClick={() => document.getElementById("file-upload").click()}
+              icon={<UploadMajor id="icons" />}
             >
               Upload JSON File
             </Button>
@@ -114,7 +117,7 @@ function Editor({
           </div>
 
           <div className="btn-div">
-            <Button onClick={clearJsonCode}>Clear</Button>
+            <Button onClick={clearJsonCode} icon={<CircleCancelMajor id="icons" />}>Clear</Button>
           </div>
         </div>
         <div className="output-field-wrapper">
@@ -130,19 +133,20 @@ function Editor({
             selectTextOnFocus
           />
           <div className={`${!updatedJson ? "disabled-button" : ""} btn-div`}>
+            <Button onClick={handleDownloadJson} disabled={!updatedJson} icon={<InstallMinor id="icons" />}>
+              Download Json Code
+            </Button>
+          </div>
+          <div className={`${!updatedJson ? "disabled-button" : ""} btn-div`}>
             <Button
               onClick={() => handleCopyToClipboard(updatedJson)}
-              disabled={!updatedJson}
+              disabled={!updatedJson} icon={<ClipboardMinor id="icons" />}
             >
               {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
             </Button>
           </div>
 
-          <div className={`${!updatedJson ? "disabled-button" : ""} btn-div`}>
-            <Button onClick={handleDownloadJson} disabled={!updatedJson}>
-              Download Json Code
-            </Button>
-          </div>
+          
         </div>
       </div>
     </FormLayout>
