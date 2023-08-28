@@ -15,7 +15,7 @@ Starting from now, the project will operate under a milestone-based approach. Ea
 #### Weekly Commitments and Stipends (New!)
 
 - Interns are expected to accumulate at least 375 points each week.
-- A week in which an intern fails to accumulate 375 points will not be considered part of the internship and will be treated as a break. New week will begin only after they complete their previous tasks successfully.
+- A week in which an intern fails to accumulate 375 points will not be considered part of the internship and will be treated as a break. A new week will begin only after they successfully complete their previous tasks.
 - Interns achieving 375 points per week for 4 consecutive weeks will receive a stipend of 120EUR.
 - After accumulating points for 8 consecutive weeks, interns will have the opportunity to take on 500-point tasks for a month, success in which may lead to a permanent position.
 
@@ -23,7 +23,7 @@ Starting from now, the project will operate under a milestone-based approach. Ea
 
 Each contribution you make towards the project earns you points. This includes, but is not limited to:
 
-1. **No More Self-Created Issues:** Issues will now be created by the project lead.
+1. **No More Self-Created Issues:** From now on, issues will be created only by the project lead.
 2. **Issue Assignment:** Issues are assigned to interns who have more than 100 points on the leaderboard.
 3. **Open Issues:** Some issues may be left unassigned. If you propose a correct solution/intent in the comments, the issue will be assigned to you. This way you can reach 100 points if you are a beginner, **Lookout for issues with label "Open Task"**
 4. **Weekly Milestones:** Focus on the week's milestones when working on assigned issues.
@@ -92,7 +92,7 @@ The Points System is designed to quantify your contributions to the project. Her
 1. **🏅 Base Points:** Every issue will carry base points that range from 10 to 100, depending on complexity.
 2. **🌟 Bonus Points:** Additional points may be awarded for exceptional work, quick turnaround, or solving critical/urgent issues.
 3. **⛔ Penalty Points:** Points may be deducted for late submissions, incomplete tasks, or subpar quality.
-5. **❓ Unassigned Issues:** If you suggest a correct solution for an unassigned issue in the comments and it gets assigned to you, you will receive 5 bonus points.
+4. **❓ Unassigned Issues:** If you suggest a correct solution for an unassigned issue in the comments and it gets assigned to you, you will receive 5 bonus points.
 
 ### 📈 Point Tracking
 
@@ -127,7 +127,7 @@ Reviewing discussions regularly ensures you are kept abreast of the latest updat
 
 ### Current Project Phase
 
-Refactoring and adding adding coding style rules.
+Refactoring and adding coding style rules.
 
 ## Stay Updated:
 
