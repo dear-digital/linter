@@ -1,0 +1,54 @@
+name: "🔍 Discovery Task"
+description: "Create a new issue for tasks focused on learning, training, and building the knowledge base"
+title: "🔍 [DISCOVERY] - <title>"
+labels: [
+  "discovery",
+  "knowledge-base"
+]
+body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing Discovery issue on this topic?
+    description: Please search to ensure there isn't already a Discovery task on the same topic.
+    options:
+    - label: I have searched the existing issues
+      required: true
+
+- type: markdown
+  attributes:
+    value: "#### Please fill out all required (*) fields for a successful issue submission."
+
+- type: textarea
+  id: objective
+  attributes:
+    label: "Objective"
+    description: What is the learning or discovery goal for this task?
+    placeholder: Describe the objective clearly.
+  validations:
+    required: true
+    
+- type: textarea
+  id: reference_materials
+  attributes:
+    label: "Reference Materials"
+    description: Provide links or references for learning materials or existing knowledge.
+    placeholder: "#Resource links or IDs"
+  validations:
+    required: false
+
+- type: textarea
+  id: expected_outcome
+  attributes:
+    label: "Expected Outcome"
+    description: What are the expected learnings or additions to the knowledge base?
+    placeholder: Describe the expected outcomes.
+  validations:
+    required: true
+
+- type: checkboxes
+  attributes:
+    label: Have you provided comprehensive details for this discovery task?
+    description: Ensure you have given as much detail as possible to facilitate the discovery process.
+    options:
+    - label: Yes, I have provided comprehensive details
+      required: true

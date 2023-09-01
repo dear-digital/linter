@@ -33,19 +33,32 @@
   font-family: var(--p-font-family-mono);
   margin-bottom: 8px;
   font-size: var(--p-font-size-100);
-  /* color: rgb(24, 162, 177); */  /* Old Blue Color */
+  /* color: rgb(24, 162, 177); */ /* Old Blue Color */
   color: rgb(240, 236, 236);
   background-color: rgb(29, 28, 28);
   width: fit-content;
   padding: 3px 10px;
   border-radius: 8px;
-  
 }
+
+.btn-div {
+  margin-bottom: 5px;
+}
+
+
+
+.disabled-button{
+  pointer-events: none !important;
+  opacity: 0.8;
+}
+
 
 .btn-div :hover {
   background-color: var(--p-color-bg-info-subdued);
   color: var(--p-color-text);
 }
+
+
 
 .lint-btn-wrapper {
   display: flex;
@@ -53,8 +66,24 @@
   gap: 10px; /* Add gap between the TextField and the button */
 }
 
-.header h4{
+
+.selected-file-name {
+  pointer-events: none; /* Disable interactions */
+  user-select: none; /* Disable text selection */
+  color: var(--p-color-bg-inverse);
+  font-family: var(--p-font-family-sans);
+  font-size: var(--p-font-size-200);
+  font-weight: var(--p-font-weight-semibold);
+}
+
+.header h4 {
   padding: 0;
+}
+
+#icons {
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
 }
 
 @media (max-width: 600px) {
@@ -75,19 +104,25 @@
   .btn-group-wrapper {
     margin-bottom: 30px;
   }
-  .btn-div{
+  .btn-div {
     margin-left: 2vw;
   }
 
-  .header{
+  .header {
     margin-left: 2vw;
   }
   .Polaris-Label {
     margin-left: 2vw;
     padding: 3px 5px;
   }
-  /* .characterCount{
-  position: relative;
-  margin-left: 2vw;
-} */
+  .selected-file-name{
+    font-size: 15px;
+  }
+ 
+}
+
+@media (max-width: 400px){
+ .selected-file-name{
+    font-size: 13px;
+  }
 }
