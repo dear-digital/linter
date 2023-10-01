@@ -23,7 +23,7 @@ function App() {
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + 7);
     document.cookie = `jsonCode=${encodeURIComponent(
-      value
+      value,
     )}; expires=${expirationDate.toUTCString()}; path=/`;
   }, []);
 

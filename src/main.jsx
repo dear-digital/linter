@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { AppProvider } from "@shopify/polaris";
@@ -9,5 +8,5 @@ import "./Index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AppProvider i18n={enTranslations}>
     <App />
-  </AppProvider>
+  </AppProvider>,
 );

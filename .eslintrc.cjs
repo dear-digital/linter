@@ -16,5 +16,13 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'no-unused-vars': 'warn',
+    'prefer-const': 'warn',
+    'semi': 'error',
+    'comma-dangle': ['error', 'always-multiline'],
+    'indent': ['error', 2],
+    'arrow-spacing': 'error',
+    'react/jsx-closing-bracket-location': ['error', 'line-aligned'],
+    'max-len': ['error', { 'code': 120 }] 
   },
 }

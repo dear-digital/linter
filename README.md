@@ -56,6 +56,68 @@ We are committed to fostering a community that’s inclusive, respectful, and pr
 
 Breaching this Code of Conduct may lead to consequences including, but not limited to, removal from the project and forfeiture of accumulated points.
 
+## CI/CD Setup with GitHub Actions
+
+We've implemented GitHub Actions for Continuous Integration (CI) in this project. This setup has several advantages:
+
+- **Automation**: Our CI workflow automatically checks our code for linting mistakes and provides solutions to fix them.
+
+- **Code Consistency**: By ensuring our code adheres to linting standards, we maintain a consistent coding style throughout the project.
+
+- **Quality Assurance**: Every pull request undergoes linting checks, preventing the introduction of code quality issues.
+
+### How It Works
+
+Whenever a pull request is submitted to the `main` branch, GitHub Actions automatically kicks in. It runs ESLint, a JavaScript linter, to analyze our code for errors or style violations. If any issues are found, the workflow provides feedback on how to resolve them.
+
+### Benefits
+
+- **Efficiency**: Automated linting saves time by catching issues early in the development process.
+
+- **Collaboration**: Team members can collaborate with confidence, knowing that their code adheres to coding standards.
+
+- **Maintainability**: A cleaner codebase is easier to maintain and extend.
+
+We encourage all contributors to follow our linting rules and appreciate the automated support provided by GitHub Actions.
+
+[Learn more about GitHub Actions](https://docs.github.com/en/actions)
+
+## 1. ESLint:
+
+- ESLint is a static code analysis tool that helps developers find and fix code quality and style issues in JavaScript code. It enforces coding standards and best practices, which can improve code readability, maintainability, and collaboration within a project.
+
+### Benefits:
+
+- Code Quality: ESLint can identify and highlight potential bugs and issues in your code, such as unused variables, missing semicolons, and more.
+- Consistency: It enforces a consistent coding style across your project, which can make the codebase more maintainable and readable.
+- Customization: You can configure ESLint to match your project's specific coding style and requirements by enabling or disabling rules and adding custom rules.
+- Integration: It can be seamlessly integrated into your development workflow and IDE, providing real-time feedback as you write code.
+- Community Support: ESLint has a large community and an extensive ecosystem of plugins and configurations to cater to various project needs.
+
+1. 'indent': ['error', 2] - Specifies the number of spaces for indentation (adjust the value to your preferred style).
+
+2. 'semi': ['error', 'always'] - Enforce the use of semicolons.
+
+3. 'quotes': ['error', 'single'] - Enforce the use of single quotes for strings.
+Unused Variables:
+
+4. 'no-unused-vars': 'error' - Detect unused variables.
+
+5. 'const' or 'let' - Prefer using const for variables that do not reassign, and let for variables that do.
+
+6. 'arrow-spacing': 'error' - Enforce consistent spacing around arrow function parameters.
+No Console:
+
+7. 'no-unused-vars': ['error', { 'args': 'none' }] - Disallow unused function parameters.
+Enforce JSX Closing Bracket Style:
+
+8.'react/jsx-closing-bracket-location': ['error', 'line-aligned'] - Enforce JSX closing bracket location to be aligned with the opening tag or on a new line.
+
+9. Enforce PropTypes: If you're not using TypeScript, you can use the 'react/prop-types' rule to enforce PropTypes for your components.
+
+10. Enforce Maximum Line Length: 'max-len': ['error', { 'code': 120 }] - Enforce a maximum line length to improve code readability.
+
+
 ## 📚 FAQ: (Updated!)
 
 **Q: How do I earn points?**  

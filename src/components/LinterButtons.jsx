@@ -1,5 +1,6 @@
 import { ButtonGroup, Button } from "@shopify/polaris";
 import "./LinterButtons.css";
+import PropTypes from "prop-types";
 
 function LinterButtons({ onFormatJSON }) {
   return (
@@ -23,5 +24,9 @@ function LinterButtons({ onFormatJSON }) {
     </ButtonGroup>
   );
 }
+
+LinterButtons.propTypes = {
+  onFormatJSON: PropTypes.string.isRequired,
+};
 
 export default LinterButtons;
