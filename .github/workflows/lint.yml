@@ -1,32 +1,41 @@
-name: Linting
+name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  lint:
+  build:
+
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    
+    - run: npm run build --if-present
 
-      - name: Install dependencies
-        run: npm install
+    - name: Run ESLint
+      run: npm run lint:eslint
 
-      - name: Run ESLint
-        run: npm run lint:eslint
+    - name: Run Prettier
+      run: npm run lint:prettier
 
-      - name: Run Prettier
-        run: npm run lint:prettier
+    - name: Run stylelint
+      run: npm run lint:stylelint
 
-      - name: Run stylelint
-        run: npm run lint:stylelint
-
-      - name: Fail if there are lint errors
-        if: ${{ steps.lint:eslint.outcome == 'failure' || steps.lint:prettier.outcome == 'failure' || steps.lint:stylelint.outcome == 'failure' }}
-        run: exit 1
+    - name: Fail if there are lint errors
+      if: ${{ steps.lint:eslint.outcome == 'failure' || steps.lint:prettier.outcome == 'failure' || steps.lint:stylelint.outcome == 'failure' }}
+      run: exit 1
