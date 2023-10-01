@@ -35,7 +35,3 @@ jobs:
 
     - name: Run stylelint
       run: npm run lint:stylelint
-
-    - name: Fail if there are lint errors
-      if: ${{ steps.lint:eslint.outcome == 'failure' || steps.lint:prettier.outcome == 'failure' || steps.lint:stylelint.outcome == 'failure' }}
-      run: exit 1
