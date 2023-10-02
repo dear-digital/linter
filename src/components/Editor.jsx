@@ -5,7 +5,7 @@ import {
   UploadMajor, ClipboardMinor, InstallMinor, CircleCancelMajor
 } from '@shopify/polaris-icons';
 import { useState } from "react";
-function Editor({
+function Editor ({
   jsonCode,
   onJsonChange,
   updatedJson,
