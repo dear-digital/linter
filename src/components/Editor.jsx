@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+
 import { FormLayout, TextField, Button } from "@shopify/polaris";
 import "./Editor.css";
 import {
   UploadMajor, ClipboardMinor, InstallMinor, CircleCancelMajor
 } from '@shopify/polaris-icons';
-function Editor({
+import { useState } from "react";
+function Editor ({
   jsonCode,
   onJsonChange,
   updatedJson,
   error,
   clearJsonCode,
-  setJsonCode,
 }) {
+  // eslint-disable-next-line no-unused-vars
   const [text, setText] = useState("");
   const [isCopied, setIsCopied] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState("");
@@ -119,6 +120,12 @@ function Editor({
           <div className="btn-div">
             <Button onClick={clearJsonCode} icon={<CircleCancelMajor id="icons" />}>Clear</Button>
           </div>
+
+          <div className="btn-div">
+            <CircleCancelMajor id="icons" />
+            <Button onClick={clearJsonCode} >Clear</Button>
+          </div>
+
         </div>
         <div className="output-field-wrapper">
           <div className="header">
@@ -145,8 +152,6 @@ function Editor({
               {error ? "Error" : isCopied ? "Copied" : "Copy JSON to Clipboard"}
             </Button>
           </div>
-
-          
         </div>
       </div>
     </FormLayout>

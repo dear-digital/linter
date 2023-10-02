@@ -132,3 +132,33 @@ Refactoring and adding coding style rules.
 ## Stay Updated:
 
 This project is in a state of active development and is constantly evolving. Rules and guidelines can change from time to time. To ensure you're always up to speed, we strongly recommend regularly reviewing the README and its change history. Checking the commit history of the README file can give you an idea of when the last changes were made. Staying updated will ensure you're always following the latest guidelines and requirements of the project. Remember, knowledge is power!
+
+
+###  CI/CD setup:
+
+GitHub Actions, ensures the CI/CD process to check the code quality of pull requests in the repository.
+
+- Rules added for eslint
+  - `semi: ["error", "always"]`: Enforces the use of semicolons at the end of statements and reports an error if missing.
+  - `indent: ["error", 2]`: Specifies a 2-space indentation style and reports an error if not followed.
+  - `no-console: "warn"`: Generates a warning if there are console statements in the code, suggesting they should be removed in production code.
+  - `no-unused-vars: "warn"`: Generates a warning for declared variables that are not used, encouraging code cleanup.
+  - `no-unused-expressions: "error"`: Reports an error for unused expressions, ensuring all expressions have a purpose.
+  - `no-trailing-spaces: "error"`: Generates an error for trailing white spaces at the end of lines, promoting clean code.
+  - `no-var: "error"`: Reports an error if var is used for variable declarations instead of let or const, encouraging modern variable declarations.
+  - `no-empty-function: "error"`: Generates an error for empty function declarations or expressions, highlighting the need for meaningful code within functions.
+  - `space-before-function-paren: ['error', 'always']`: Enforces the presence of a space before the opening parenthesis of a function declaration or expression and reports an error if missing.
+
+
+###  Benefits:
+
+- **Automated Linting and Testing:** With the CI/CD pipeline, every code commit and pull request will undergo automated linting and testing. This includes running code linters, security checks, and other relevant tests, ensuring that code adheres to predefined standards and is free from common issues.
+- **Immediate Feedback:** Developers will receive immediate feedback on their code contributions. This feedback loop is essential for catching and rectifying issues early in the development process, reducing the chances of defective code entering the repository.
+- **Consistency and Standards:** The CI/CD setup enforces coding standards and style guidelines consistently across the entire codebase. This consistency enhances code readability and makes collaboration more straightforward.
+
+###  Envisioned Project Scope:
+
+- **Security Checks:** Implementing security linters and vulnerability scanning to identify and address security issues.
+- **Documentation:** Automated generation and verification of documentation to keep it in sync with the code.
+- **Dependency Management:** Integration of dependency management checks to ensure dependencies are secure and up-to-date.
+- **Notifications and Reporting:** Configuring notifications and reporting mechanisms to keep the team informed about the status of builds and code quality.

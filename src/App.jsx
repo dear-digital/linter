@@ -5,7 +5,7 @@ import LinterButtons from "./components/LinterButtons";
 import "./App.css";
 import axios from "axios";
 
-function App() {
+function App () {
   const [error, setError] = useState("");
   const [jsonCode, setJsonCode] = useState("");
   const [updatedJsonCode, setUpdatedJsonCode] = useState("");

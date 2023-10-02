@@ -1,7 +1,7 @@
 import { ButtonGroup, Button } from "@shopify/polaris";
 import "./LinterButtons.css";
 
-function LinterButtons({ onFormatJSON }) {
+function LinterButtons ({ onFormatJSON }) {
   return (
     <ButtonGroup role="group" aria-label="Linting Options">
       <div className="btn-group-wrapper">

@@ -43,9 +43,31 @@
 
 .btn-div {
   margin-bottom: 5px;
+  
 }
 
+/* .btn-div{
+  width: fit-content;
+  background-color: var(--p-color-bg-info-strong);
+  color: var(--p-color-text-inverse);
+  margin: 10px 10px 0 0;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  
+} */
 
+/* .btn-div Button{
+  padding: 12px 15px 12px 4px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: inherit;
+  border-radius: 3px;
+
+} */
 
 .disabled-button{
   pointer-events: none !important;
@@ -81,9 +103,10 @@
 }
 
 #icons {
-  width: 20px;
+  width: 30px;
   height: 20px;
-  padding-right: 10px;
+  align-self: center;
+  
 }
 
 @media (max-width: 600px) {
