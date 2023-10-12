@@ -5,7 +5,7 @@
 | kmalap05       | 1388 | 3 |
 | anishdalvi     | 828 | 2 |
 | tanujbordikar  | 50 | |
+| Zaid1681       | 40 | |
 | dave-SYD       | 25 | |
-| Zaid1681       | 20 | |
 | Saurabh8807      | 20 | |
 
