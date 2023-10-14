@@ -4,8 +4,8 @@
 | Mri1662        | 1810 | 4 |
 | kmalap05       | 1488 | 3 |
 | anishdalvi     | 928 | 2 |
-| tanujbordikar  | 90 | |
-| Zaid1681       | 60 | |
+| tanujbordikar  | 110 | |
+| Zaid1681       | 80 | |
+| Saurabh8807    | 60 | |
 | dave-SYD       | 25 | |
-| Saurabh8807      | 40 | |
 
