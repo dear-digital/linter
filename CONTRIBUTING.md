@@ -1,3 +1,33 @@
+## Contribution Points and Labels
+
+We use a point system to reward contributions and also to determine who can work on particular issues.
+
+#### Points System:
+
+- Points for contributors are maintained in the `POINTS.md` file.
+- Accumulate points by successfully closing issues and meeting the Acceptance Criteria.
+
+#### Issue Labels:
+- **L1 Issues**: These issues are good for first time contributors.
+  - Only contributors with **less than 100 points** as per the `POINTS.md` file are eligible to work on L1 issues.
+- **L2 Issues**: These issues are more challenging and require a certain level of experience with our project.
+  - Only contributors with **more than or equal to 100 points** as per the `POINTS.md` file are eligible to work on L2 issues.
+  
+#### Want to work on an L2 issue?
+
+1. First, check your points in the `POINTS.md` file.
+2. If eligible, **comment** on the issue with the following format: `/attempt #[issue-id]`.  
+   For example: `/attempt #123`.
+3. **NOTE**: Failing to comment as specified, even if you provide a correct solution within the given time frame, will result in receiving only **half the points** for that issue.
+
+### Submission and Point Allocation:
+
+- If two or more contributors submit solutions for an issue that meets the Acceptance Criteria:
+  1. The first contributor to submit will receive full points.
+  2. Subsequent correct submissions will receive only half the points.
+
+## Setup
+
 Following are the steps to run the project locally:
 
 1.  Go to preferred folder in your computer and paste the following command after forking our repository (Only one of it if you don't have ssh setup then go with HTTP command)
